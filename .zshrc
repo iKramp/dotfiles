@@ -1,16 +1,25 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt autocd
-unsetopt beep
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/nejc/.zshrc'
+export ZSH="$HOME/.oh-my-zsh"
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+ZSH_THEME="robbyrussell"
+
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export LANG=en_US.UTF-8
 
 export EDITOR=nvim
+
+export ARCHFLAGS="-arch x86_64"
