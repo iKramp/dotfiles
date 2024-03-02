@@ -120,7 +120,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";
-    }
+    };
     ohMyZsh = {
       enable = true;
       theme = "robbyrussell";
