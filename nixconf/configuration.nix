@@ -103,6 +103,7 @@
     grim
     slurp
     grimblast
+    oh-my-zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -113,7 +114,19 @@
   #   enableSSHSupport = true;
   # };
   programs.hyprland.enable = true;
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      update = "sudo nixos-rebuild switch";
+    }
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" ];
+    };
+  };
 
   #make electron apps work
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
