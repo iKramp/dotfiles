@@ -1,2 +1,2 @@
-stow -R .
-stow -R nixconf -t /etc/nixos
+sudo stow -R .
+sudo stow -R nixconf -t /etc/nixos

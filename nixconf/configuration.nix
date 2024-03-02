@@ -96,6 +96,13 @@
     pavucontrol
     playerctl
     vesktop
+    unzip
+    neofetch
+    flameshot
+    wl-clipboard
+    grim
+    slurp
+    grimblast
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
