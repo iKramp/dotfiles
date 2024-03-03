@@ -104,6 +104,8 @@
     slurp
     grimblast
     oh-my-zsh
+    spicetify-cli
+    gcc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -120,6 +122,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";
+      nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
     };
     ohMyZsh = {
       enable = true;
@@ -127,6 +130,7 @@
       plugins = [ "git" ];
     };
   };
+  programs.steam.enable = true;
 
   #make electron apps work
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
