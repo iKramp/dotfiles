@@ -18,5 +18,7 @@ require("lazy").setup({
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { 'nvim-treesitter/nvim-treesitter', cmd = "TSUpdate" },
-  { "ThePrimeagen/harpoon"},
+  { "ThePrimeagen/harpoon" },
+  { "mbbill/undotree" },
+  { "tpope/vim-fugitive" },
 })
