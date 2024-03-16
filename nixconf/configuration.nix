@@ -106,6 +106,7 @@
     oh-my-zsh
     spicetify-cli
     gcc
+    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
