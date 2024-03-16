@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -121,7 +121,7 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch";
+      update = "/home/nejc/Documents/upgrade-nix.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
     };
     ohMyZsh = {
