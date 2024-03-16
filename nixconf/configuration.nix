@@ -95,7 +95,7 @@
     git
     pavucontrol
     playerctl
-    vesktop
+    unstable.vesktop
     unzip
     neofetch
     flameshot
