@@ -5,5 +5,3 @@ lsp_zero.on_attach(function(client, bufnr)
   -- to learn the available actions
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
-
--- here you can setup the language servers 
