@@ -114,6 +114,7 @@
     cmake
     gnumake
     gdb
+    libpkgconf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -131,6 +132,7 @@
     shellAliases = {
       update = "/home/nejc/Documents/upgrade-nix.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
+      tershell = "nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver";
     };
     ohMyZsh = {
       enable = true;
