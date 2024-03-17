@@ -105,8 +105,15 @@
     grimblast
     oh-my-zsh
     spicetify-cli
-    gcc
+    libgcc
     python3
+    libclang
+    libstdcxx5
+    bear
+    gcc
+    cmake
+    gnumake
+    gdb
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
