@@ -6,7 +6,7 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr, exclude = {'gs'}})
   vim.keymap.set({'n', 'x'}, 'gf', function()
     vim.lsp.buf.format({async = false, timeout_ms = 10000})
-  end, opts)
+  end, { desc = 'format buffer'})
 end)
 
 lsp_zero.format_on_save({
@@ -24,7 +24,6 @@ lsp_zero.setup_servers({'clangd', 'rust_analyzer', 'lua_ls'})
 lsp_zero.extend_cmp()
 
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
   sources = {
@@ -36,14 +35,9 @@ cmp.setup({
 --    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 --  }),
   mapping = {
-    ['<C-Space>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.confirm({select = false})
-      else
-        cmp.complete()
-      end
-    end),
---    ['<C-e>'] = cmp.mapping.abort(), --find a good key for aborting
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = cmp.mapping.confirm({select = true}),
+    ['<Escape>'] = cmp.mapping.abort(),
     ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
     ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
   },

@@ -115,6 +115,8 @@
     gnumake
     gdb
     libpkgconf
+    lua-language-server
+    ripgrep
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

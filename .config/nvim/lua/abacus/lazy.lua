@@ -16,14 +16,26 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { 'nvim-treesitter/nvim-treesitter', cmd = "TSUpdate" },
-  { "ThePrimeagen/harpoon" },
-  { "mbbill/undotree" },
-  { "tpope/vim-fugitive" },
-  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-  {'neovim/nvim-lspconfig'},
-  {'hrsh7th/cmp-nvim-lsp'},
-  {'hrsh7th/nvim-cmp'},
-  {'L3MON4D3/LuaSnip'},
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate' },
+  { 'ThePrimeagen/harpoon' },
+  { 'mbbill/undotree' },
+  { 'tpope/vim-fugitive' },
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'L3MON4D3/LuaSnip' },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+  { 
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
 })
