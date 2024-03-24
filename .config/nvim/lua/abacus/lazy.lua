@@ -30,7 +30,7 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
-  { 
+  {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     init = function()
@@ -38,4 +38,5 @@ require("lazy").setup({
       vim.o.timeoutlen = 300
     end,
   },
+  { 'j-hui/fidget.nvim' }
 })

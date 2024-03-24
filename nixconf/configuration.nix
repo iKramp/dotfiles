@@ -104,7 +104,6 @@
     slurp
     grimblast
     oh-my-zsh
-    spicetify-cli
     libgcc
     python3
     libclang
@@ -117,6 +116,7 @@
     libpkgconf
     lua-language-server
     ripgrep
+    obs-studio
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
