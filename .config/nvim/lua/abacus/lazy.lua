@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {'windwp/nvim-autopairs'},
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' }
@@ -38,5 +39,6 @@ require("lazy").setup({
       vim.o.timeoutlen = 300
     end,
   },
-  { 'j-hui/fidget.nvim' }
+  { 'j-hui/fidget.nvim' },
+  { 'VonHeikemen/fine-cmdline.nvim', dependencies = 'MunifTanjim/nui.nvim' }
 })

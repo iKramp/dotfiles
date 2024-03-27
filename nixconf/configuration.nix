@@ -117,6 +117,7 @@
     lua-language-server
     ripgrep
     obs-studio
+    wpsoffice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

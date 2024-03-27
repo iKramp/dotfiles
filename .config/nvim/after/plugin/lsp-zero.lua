@@ -43,16 +43,17 @@ lsp_zero.extend_cmp()
 
 local cmp = require('cmp')
 local luasnip = require("luasnip")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup({
     sources = {
         { name = 'nvim_lsp' },
     },
     mapping = {
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-Space>'] = cmp.mapping.confirm(),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
@@ -64,7 +65,7 @@ cmp.setup({
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_prev_item()
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
             elseif luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else
@@ -79,3 +80,8 @@ cmp.setup({
         end,
     },
 })
+
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
