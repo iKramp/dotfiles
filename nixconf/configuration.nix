@@ -66,10 +66,10 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
+    unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {config.allowUnfree = true;};
   };
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -81,6 +81,7 @@
     firefox
     lf
     rofi
+    wofi
     waybar
     rustup
     spotify
@@ -116,8 +117,12 @@
     libpkgconf
     lua-language-server
     ripgrep
-    obs-studio
+    unstable.obs-studio
     wpsoffice
+    tmux
+    unstable.osu-lazer-bin
+    ntfs3g
+    nvd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

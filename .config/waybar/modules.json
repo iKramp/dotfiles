@@ -205,7 +205,7 @@
 
     // System
     "custom/system": {
-        "format": "",
+        "format": "<span size='large'>󰍛</span>",
         "tooltip": false
     },
 
@@ -267,7 +267,7 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -282,7 +282,8 @@
             "car": "",
             "default": ["", " ", " "]
         },
-        "on-click": "pavucontrol"
+        "on-click-right": "pavucontrol",
+        "on-click": "~/dotfiles/.config/waybar/scripts/audio_changer.py"
     },
 
     // Bluetooth
