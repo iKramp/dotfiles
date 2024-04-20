@@ -37,6 +37,14 @@
     LC_TIME = "sl_SI.UTF-8";
   };
 
+
+  # Add unstable and old nerd fonts
+  # Allow unfree packages
+  nixpkgs.config.packageOverrides = pkgs: {
+    unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {config.allowUnfree = true;};
+  };
+  nixpkgs.config.allowUnfree = true;
+
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
@@ -65,11 +73,6 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  # Allow unfree packages
-  nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {config.allowUnfree = true;};
-  };
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -123,6 +126,8 @@
     unstable.osu-lazer-bin
     ntfs3g
     nvd
+    gimp
+    feh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

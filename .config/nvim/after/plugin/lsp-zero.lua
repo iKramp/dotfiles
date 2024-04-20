@@ -9,7 +9,10 @@ end
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
-    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gs' } })
+    lsp_zero.default_keymaps({
+        buffer = bufnr,
+        preserve_mappings = false
+    })
     vim.keymap.set({ 'n', 'x' }, 'gf', function()
         vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
     end, { desc = 'format buffer' })
@@ -34,6 +37,9 @@ lsp_zero.configure('rust_analyzer', {
         ["rust-analyzer"] = {
             checkOnSave = {
                 command = "clippy",
+            },
+            procMacro = {
+                enable = true
             },
         },
     },
