@@ -53,6 +53,7 @@
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+    gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
   };
 
   services.pipewire = {
@@ -128,6 +129,7 @@
     nvd
     gimp
     feh
+    xdg-utils
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -145,7 +147,7 @@
     shellAliases = {
       update = "/home/nejc/Documents/upgrade-nix.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
-      tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver";
+      tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command zsh";
     };
     ohMyZsh = {
       enable = true;
@@ -156,7 +158,11 @@
   programs.steam.enable = true;
 
   #make electron apps work
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    WAYLAND_DISPLAY = "1";
+  };
+
 
   # List services that you want to enable:
 

@@ -5,6 +5,7 @@ require'FTerm'.setup({
         width = 0.9,
     },
     blend = 25,
+    cmd = 'zsh',
 })
 
 -- Example keybindings
