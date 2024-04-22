@@ -160,7 +160,6 @@
   #make electron apps work
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    WAYLAND_DISPLAY = "1";
   };
 
 
