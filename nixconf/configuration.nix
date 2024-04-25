@@ -11,7 +11,11 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    memtest86.enable = true;
+  };
+  boot.loader.timeout = 100000000;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "abacus_nixos"; # Define your hostname.
@@ -45,15 +49,26 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+#  hardware.opengl = {
+#    enable = true;
+#    extraPackages = [ pkgs.unstable.mesa ];
+#    driSupport32Bit = true;
+#    extraPackages32 = [ pkgs.unstable.pkgsi686Linux.mesa ];
+#  };
+
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
+  fonts.fontconfig.antialias = true;
 
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+    videoDrivers = [
+      "amdgpu"
+    ];
   };
 
   services.pipewire = {
@@ -140,6 +155,7 @@
   #   enableSSHSupport = true;
   # };
   programs.hyprland.enable = true;
+
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
@@ -147,7 +163,7 @@
     shellAliases = {
       update = "/home/nejc/Documents/upgrade-nix.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
-      tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command zsh";
+      tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
     };
     ohMyZsh = {
       enable = true;
@@ -155,6 +171,7 @@
       plugins = [ "git" ];
     };
   };
+
   programs.steam.enable = true;
 
   #make electron apps work
