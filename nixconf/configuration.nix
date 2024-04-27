@@ -145,6 +145,8 @@
     gimp
     feh
     xdg-utils
+    llvmPackages_17.libllvm
+    qemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -161,7 +163,7 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      update = "/home/nejc/Documents/upgrade-nix.sh";
+      update = "/home/nejc/dotfiles/scripts/update.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
       tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
     };

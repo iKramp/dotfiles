@@ -37,6 +37,7 @@ lsp_zero.configure('rust_analyzer', {
         ["rust-analyzer"] = {
             checkOnSave = {
                 command = "clippy",
+                allTargets = false,
             },
             procMacro = {
                 enable = true
