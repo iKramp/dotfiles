@@ -42,5 +42,5 @@ require("lazy").setup({
   { 'j-hui/fidget.nvim' },
   { 'VonHeikemen/fine-cmdline.nvim', dependencies = 'MunifTanjim/nui.nvim' },
   { 'numToStr/FTerm.nvim' },
-  { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' }
+  { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
 })

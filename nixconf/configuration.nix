@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -93,7 +93,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  
   environment.systemPackages = with pkgs; [
     neovim
     kitty
@@ -106,7 +105,7 @@
     spotify
     steam
     stow
-    deepin.dde-file-manager
+    gnome.nautilus
     htop
     wireplumber
     pipewire
@@ -118,7 +117,6 @@
     unstable.vesktop
     unzip
     neofetch
-    flameshot
     wl-clipboard
     grim
     slurp
@@ -147,6 +145,10 @@
     xdg-utils
     llvmPackages_17.libllvm
     qemu
+    hyprpaper
+    (flameshot.overrideAttrs (finalAttrs: previousAttrs: {#doesn't work lol
+      cmakeFlags = [(lib.cmakeBool "USE_WAYLAND_GRIM" true)];
+    }))
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -179,6 +181,7 @@
   #make electron apps work
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    XDG_CURRENT_DESKTOP = "Sway";
   };
 
 
