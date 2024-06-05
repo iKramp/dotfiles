@@ -106,7 +106,6 @@
     steam
     stow
     gnome.nautilus
-    htop
     wireplumber
     pipewire
     vlc
@@ -149,6 +148,7 @@
     (flameshot.overrideAttrs (finalAttrs: previousAttrs: {#doesn't work lol
       cmakeFlags = [(lib.cmakeBool "USE_WAYLAND_GRIM" true)];
     }))
+    btop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

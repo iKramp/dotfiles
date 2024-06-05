@@ -43,4 +43,7 @@ require("lazy").setup({
   { 'VonHeikemen/fine-cmdline.nvim', dependencies = 'MunifTanjim/nui.nvim' },
   { 'numToStr/FTerm.nvim' },
   { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
+  { 'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' }
+  }
 })
