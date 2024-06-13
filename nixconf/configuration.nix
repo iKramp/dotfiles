@@ -63,8 +63,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     videoDrivers = [
       "amdgpu"
@@ -98,7 +98,7 @@
     kitty
     firefox
     lf
-    rofi
+    rofi-wayland
     wofi
     waybar
     rustup
@@ -144,11 +144,12 @@
     xdg-utils
     llvmPackages_17.libllvm
     qemu
-    hyprpaper
+    unstable.hyprpaper
     (flameshot.overrideAttrs (finalAttrs: previousAttrs: {#doesn't work lol
       cmakeFlags = [(lib.cmakeBool "USE_WAYLAND_GRIM" true)];
     }))
     btop
+    swaynotificationcenter
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

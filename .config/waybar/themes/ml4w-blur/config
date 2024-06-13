@@ -46,6 +46,7 @@
     "modules-right": [
         "pulseaudio",
         "group/hardware",
+        "custom/notification",
         "custom/cliphist",
         "idle_inhibitor",
         "tray",

@@ -45,5 +45,6 @@ require("lazy").setup({
   { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
   { 'kevinhwang91/nvim-ufo',
     dependencies = { 'kevinhwang91/promise-async' }
-  }
+  },
+  { 'p00f/nvim-ts-rainbow' }
 })
