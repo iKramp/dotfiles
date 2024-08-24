@@ -46,5 +46,11 @@ require("lazy").setup({
   { 'kevinhwang91/nvim-ufo',
     dependencies = { 'kevinhwang91/promise-async' }
   },
-  { 'p00f/nvim-ts-rainbow' }
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
+  },
+  { 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim' },
+  { 'lukas-reineke/indent-blankline.nvim' }
 })

@@ -44,8 +44,8 @@
 
     // Modules Right    
     "modules-right": [
-        "pulseaudio",
         "group/hardware",
+        "pulseaudio",
         "custom/notification",
         "custom/cliphist",
         "idle_inhibitor",

@@ -16,3 +16,7 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 
 export ARCHFLAGS="-arch x86_64"
+
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=unix:///var/run/docker.sock
+export jwkPath=/home/nejc/temp/jwk.json
+export config=nejc

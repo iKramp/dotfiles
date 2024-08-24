@@ -48,6 +48,11 @@
     unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {config.allowUnfree = true;};
   };
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    permittedInsecurePackages = [ 
+    "qtwebkit-5.212.0-alpha4"
+    "openssl-1.1.1w"];
+  };
 
 #  hardware.opengl = {
 #    enable = true;
@@ -79,11 +84,13 @@
     jack.enable = true;
   };
 
+  services.udisks2.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nejc = {
     isNormalUser = true;
     description = "Nejc";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -113,7 +120,10 @@
     git
     pavucontrol
     playerctl
-    unstable.vesktop
+    (discord.override {
+        withVencord = true;
+        withOpenASAR = true;
+    })
     unzip
     neofetch
     wl-clipboard
@@ -145,11 +155,29 @@
     llvmPackages_17.libllvm
     qemu
     unstable.hyprpaper
-    (flameshot.overrideAttrs (finalAttrs: previousAttrs: {#doesn't work lol
-      cmakeFlags = [(lib.cmakeBool "USE_WAYLAND_GRIM" true)];
-    }))
     btop
     swaynotificationcenter
+    volnoti
+    modrinth-app
+    vesktop
+    unstable.hyprpicker
+    mpv
+    krita
+    feh
+    udiskie
+    SDL2
+
+
+    #java stuff
+    jdk
+    jetbrains.idea-community
+    docker
+    wkhtmltopdf-bin #some insecure package don't need for now
+    sass
+    maven
+    postgresql
+    nodejs_22
+    chromium
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -184,6 +212,8 @@
     NIXOS_OZONE_WL = "1";
     XDG_CURRENT_DESKTOP = "Sway";
   };
+
+  virtualisation.docker.enable = true;
 
 
   # List services that you want to enable:
