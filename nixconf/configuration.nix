@@ -101,7 +101,7 @@
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-    neovim
+    unstable.neovim
     kitty
     firefox
     lf
@@ -154,7 +154,7 @@
     xdg-utils
     llvmPackages_17.libllvm
     qemu
-    unstable.hyprpaper
+    hyprpaper
     btop
     swaynotificationcenter
     volnoti
@@ -166,6 +166,8 @@
     feh
     udiskie
     SDL2
+    nvtopPackages.amd
+    vscode-extensions.vadimcn.vscode-lldb.adapter
 
 
     #java stuff

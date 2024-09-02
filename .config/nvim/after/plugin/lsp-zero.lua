@@ -31,21 +31,6 @@ lsp_zero.format_on_save({
 
 lsp_zero.setup_servers({ 'clangd', 'lua_ls' })
 
-lsp_zero.configure('rust_analyzer', {
-    single_file_support = true,
-    settings = {
-        ["rust-analyzer"] = {
-            checkOnSave = {
-                command = "clippy",
-                allTargets = false,
-            },
-            procMacro = {
-                enable = true
-            },
-        },
-    },
-})
-
 lsp_zero.extend_cmp()
 
 local cmp = require('cmp')
