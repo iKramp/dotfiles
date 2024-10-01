@@ -88,5 +88,6 @@ require("lazy").setup({
             "mfussenegger/nvim-dap",
             "nvim-neotest/nvim-nio"
         }
-    }
+    },
+    { "github/copilot.vim" }
 })
