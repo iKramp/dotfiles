@@ -10,6 +10,7 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      /etc/nixos/laptop/config.nix
     ];
 
   # Bootloader.
@@ -23,8 +24,6 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = options.networking.hostName;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
@@ -89,6 +88,8 @@ in {
 
   services.udisks2.enable = true;
 
+  services.blueman.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nejc = {
     isNormalUser = true;
@@ -119,7 +120,7 @@ in {
     wireplumber
     pipewire
     vlc
-    unstable.spacedrive
+    spacedrive
     git
     pavucontrol
     playerctl
@@ -160,7 +161,6 @@ in {
     swaynotificationcenter
     volnoti
     modrinth-app
-    #vesktop
     unstable.hyprpicker
     mpv
     krita
