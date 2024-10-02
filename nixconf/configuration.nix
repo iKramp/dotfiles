@@ -4,7 +4,9 @@
 
 { config, pkgs, lib, ... }:
 
-{
+let
+  options = import /etc/nixos/options.nix config;
+in {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
@@ -18,10 +20,11 @@
   boot.loader.timeout = 100000000;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "abacus_nixos"; # Define your hostname.
-
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = options.networking.hostName;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
@@ -122,7 +125,6 @@
     playerctl
     (discord.override {
         withVencord = true;
-        withOpenASAR = true;
     })
     unzip
     neofetch
@@ -135,7 +137,6 @@
     python3
     libclang
     libstdcxx5
-    bear
     gcc
     cmake
     gnumake
@@ -159,7 +160,7 @@
     swaynotificationcenter
     volnoti
     modrinth-app
-    vesktop
+    #vesktop
     unstable.hyprpicker
     mpv
     krita
@@ -168,7 +169,6 @@
     SDL2
     nvtopPackages.amd
     vscode-extensions.vadimcn.vscode-lldb.adapter
-
 
     #java stuff
     jdk
@@ -180,7 +180,7 @@
     postgresql
     nodejs_22
     chromium
-  ];
+  ] ++ (import ./laptop/packages.nix {inherit pkgs options;});
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
