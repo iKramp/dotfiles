@@ -1,3 +1,3 @@
 { ... }: {
-    networking.hostname = "abacusnixos";
+    networking.hostName = "abacusnixos";
 }

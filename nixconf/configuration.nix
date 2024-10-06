@@ -11,6 +11,7 @@ in {
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       /etc/nixos/laptop/config.nix
+      /etc/nixos/desktop/config.nix
     ];
 
   # Bootloader.
