@@ -89,5 +89,9 @@ require("lazy").setup({
             "nvim-neotest/nvim-nio"
         }
     },
-    { "github/copilot.vim" }
+    { "github/copilot.vim" },
+    {
+        "lervag/vimtex",
+        lazy = false,
+    }
 })

@@ -4,6 +4,7 @@ let packages = with pkgs; [
   bluez
   networkmanagerapplet
   brightnessctl
+  mono
 ];
 in if options.networking.hostName == "abacus_nixos_laptop" then
     builtins.trace "Returning packages for hostname: ${options.networking.hostName}" packages

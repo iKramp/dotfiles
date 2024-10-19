@@ -10,8 +10,8 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      /etc/nixos/laptop/config.nix
-      /etc/nixos/desktop/config.nix
+      (import /etc/nixos/laptop/config.nix { inherit config; inherit pkgs; inherit lib; inherit options; })
+      (import /etc/nixos/desktop/config.nix { inherit config; inherit pkgs; inherit lib; inherit options; })
     ];
 
   # Bootloader.
@@ -21,6 +21,8 @@ in {
   };
   boot.loader.timeout = 100000000;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -170,6 +172,15 @@ in {
     SDL2
     nvtopPackages.amd
     vscode-extensions.vadimcn.vscode-lldb.adapter
+    zathura
+    texliveFull
+    wtype
+    tree-sitter
+    texlab
+    jdt-language-server
+    libisoburn
+    limine
+    xxd
 
     #java stuff
     jdk

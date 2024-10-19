@@ -29,7 +29,7 @@ lsp_zero.format_on_save({
 })
 
 
-lsp_zero.setup_servers({ 'clangd', 'lua_ls' })
+lsp_zero.setup_servers({ 'clangd', 'lua_ls', 'texlab', 'jdtls' })
 
 lsp_zero.extend_cmp()
 
