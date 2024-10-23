@@ -123,7 +123,7 @@ in {
     wireplumber
     pipewire
     vlc
-    spacedrive
+    unstable.spacedrive
     git
     pavucontrol
     playerctl
@@ -181,6 +181,7 @@ in {
     libisoburn
     limine
     xxd
+    logisim-evolution
 
     #java stuff
     jdk
