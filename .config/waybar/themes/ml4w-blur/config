@@ -51,6 +51,7 @@
         "idle_inhibitor",
         "tray",
         "custom/exit",
+        "battery",
         "clock"
     ]
 }

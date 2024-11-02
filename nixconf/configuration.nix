@@ -182,6 +182,7 @@ in {
     limine
     xxd
     logisim-evolution
+    nasm
 
     #java stuff
     jdk
