@@ -48,9 +48,9 @@
         "pulseaudio",
         "custom/notification",
         "custom/cliphist",
-        "idle_inhibitor",
+        //"idle_inhibitor",
         "tray",
-        "custom/exit",
+        //"custom/exit",
         "battery",
         "clock"
     ]
