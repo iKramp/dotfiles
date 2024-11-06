@@ -15,12 +15,18 @@ in {
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot = {
-    enable = true;
-    memtest86.enable = true;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        memtest86.enable = true;
+      };
+      timeout = 100000000;
+      efi.canTouchEfiVariables = true;
+    };
+    tmp.useTmpfs = true;
+    tmp.tmpfsSize = "50%";
   };
-  boot.loader.timeout = 100000000;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -183,6 +189,8 @@ in {
     xxd
     logisim-evolution
     nasm
+    unstable.cliphist
+    bitwarden
 
     #java stuff
     jdk

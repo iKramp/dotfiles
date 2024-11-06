@@ -55,35 +55,12 @@
         },
         "separate-outputs": true
     },
-
-    // Youtube Subscriber Count
-    "custom/youtube": {
-        "format": " {}",
-        "exec": "python ~/private/youtube.py",
-        "restart-interval": 600,
-        "on-click": "chromium https://studio.youtube.com",
-        "tooltip": false
-    },
     
     // Cliphist
     "custom/cliphist": {
         "format": "",
-        "on-click": "sleep 0.1 && ~/dotfiles/.config/scripts/cliphist.sh",
-        "on-click-right": "sleep 0.1 && ~/dotfiles/.config/scripts/cliphist.sh d",
-        "on-click-middle": "sleep 0.1 && ~/dotfiles/.config/scripts/cliphist.sh w",
-        "tooltip": false
-    },
-
-    // Updates Count
-    "custom/updates": {
-        "format": "  {}",
-        "tooltip-format": "{}",
-        "escape": true,
-        "return-type": "json",       
-        "exec": "~/dotfiles/scripts/updates.sh",
-        "restart-interval": 60,
-        "on-click": "alacritty -e ~/dotfiles/.config/scripts/installupdates.sh",
-        "on-click-right": "~/dotfiles/.config/.settings/software.sh",
+        "on-click": "sleep 0.1 && ~/dotfiles/.config/waybar/scripts/cliphist.sh",
+        "on-click-right": "sleep 0.1 && ~/dotfiles/.config/waybar/scripts/cliphist-img.sh",
         "tooltip": false
     },
     
@@ -95,52 +72,10 @@
         "tooltip": false
     },
 
-    // Settings
-    "custom/settings": {
-        "format": "",
-        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/.config/hypr/start-settings.sh",
-        "tooltip": false
-    },
-
     // Keybindings
     "custom/keybindings": {
         "format": "",
         "on-click": "~/dotfiles/.config/hypr/scripts/keybindings.sh",
-        "tooltip": false
-    },
-
-    // Filemanager Launcher
-    "custom/filemanager": {
-        "format": "",
-        "on-click": "~/dotfiles/.config/.settings/filemanager.sh",
-        "tooltip": false
-    },
-
-    // Outlook Launcher
-    "custom/outlook": {
-        "format": "",
-        "on-click": "chromium --app=https://outlook.office.com/mail/",
-        "tooltip": false
-    },
-
-    // Teams Launcher
-    "custom/teams": {
-        "format": "",
-        "on-click": "chromium --app=https://teams.microsoft.com/go",
-        "tooltip": false
-    },
-
-    // Browser Launcher
-    "custom/browser": {
-        "format": "",
-        "on-click": "~/dotfiles/.config/.settings/browser.sh",
-        "tooltip": false
-    },    
-
-    // ChatGPT Launcher
-    "custom/chatgpt": {
-        "format": "",
-        "on-click": "chromium --app=https://chat.openai.com",
         "tooltip": false
     },
 
@@ -194,11 +129,9 @@
 
     // Clock
     "clock": {
-        // "timezone": "America/New_York",
+        "timezone": "Europe/Ljubljana",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        // START CLOCK FORMAT
-"format-alt": "{:%d-%m-%Y}"
-        // END CLOCK FORMAT
+        "format-alt": "{:%d-%m-%Y}"
     },
 
     // System
@@ -210,13 +143,13 @@
     // CPU
     "cpu": {
         "format": "/ C {usage}% ",
-        "on-click": "alacritty -e htop"
+        "on-click": "kitty btop"
     },
 
     // Memory
     "memory": {
         "format": "/ M {}% ",
-        "on-click": "alacritty -e htop"
+        "on-click": "kitty btop"
     },
 
     // Harddisc space used
@@ -224,7 +157,7 @@
         "interval": 30,
         "format": "D {percentage_used}% ",
         "path": "/",
-        "on-click": "alacritty -e htop"
+        "on-click": "kitty btop"
     }, 
 
     "hyprland/language": {
@@ -268,7 +201,7 @@
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": "󰝟 {icon}  {format_source}",
-        "format-muted": "󰝟 {format_source}",
+        "format-muted": "󰝟",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -336,7 +269,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% {icon} 󱐋",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module

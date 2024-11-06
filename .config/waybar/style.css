@@ -10,10 +10,15 @@
  * ----------------------------------------------------- 
 */
 
-/* -----------------------------------------------------
- * Import Pywal colors 
- * ----------------------------------------------------- */
-/* @import 'style-light.css'; */
+@define-color backgroundlight #222222;
+@define-color backgrounddark #222222;
+@define-color workspacesbackground1 #222222;
+@define-color workspacesbackground2 #80AAED;
+@define-color bordercolor #444444;
+@define-color textcolor1 #EEEEEE;
+@define-color textcolor2 #EEEEEE;
+@define-color textcolor3 #EEEEEE;
+@define-color iconcolor #EEEEEE;
 
 /* -----------------------------------------------------
  * General 
@@ -23,6 +28,15 @@
     font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 0px;
+}
+
+#example_bordered_tile {
+    background-color: @backgrounddark;
+    font-size: 16px;
+    color: @textcolor1;
+    border-radius: 15px;
+    opacity:0.8;
+    border:3px solid @bordercolor;   
 }
 
 window#waybar {
@@ -219,13 +233,15 @@ window#waybar.empty #window {
 }
 
 #custom-notification {
-    background-color: @backgroundlight;
+    padding: 0px 15px 0px 10px;
+    margin: 6px 15px 6px 0px;
+
+    background-color: @backgrounddark;
     font-size: 16px;
-    color: @textcolor2;
+    color: @textcolor1;
     border-radius: 15px;
-    padding: 2px 14px 0px 10px;
-    margin: 8px 15px 8px 0px;
     opacity:0.8;
+    border:3px solid @bordercolor;   
 }
 
 /* -----------------------------------------------------
@@ -350,13 +366,16 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #pulseaudio {
-    background-color: @backgroundlight;
+    padding: 0px 15px 0px 10px;
+    margin: 6px 15px 6px 0px;
+
+    background-color: @backgrounddark;
     font-size: 16px;
-    color: @textcolor2;
+    color: @textcolor1;
     border-radius: 15px;
-    padding: 2px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
     opacity:0.8;
+    border:3px solid @bordercolor;   
+
 }
 
 #pulseaudio.muted {

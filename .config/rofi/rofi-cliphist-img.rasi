@@ -1,0 +1,65 @@
+* {
+    sidebar-mode: false;
+    show-icons: true;
+
+    foreground: #FFFFFF;
+    background: #1E1E2E;
+    selected-normal-background: #3b3b59;
+    border-color: #44475a;
+    border: 2;
+}
+
+configuration {
+    use-icons: true;
+
+    // General display tweaks
+    font: "Hack 12"; // Choose a legible font and size
+    sidebar-mode: false;
+    show-icons: true;
+
+    // Color scheme (optional)
+    foreground: #FFFFFF;
+    background: #1E1E2E;
+    border-color: #44475a;
+    border: 2;
+}
+
+window {
+    height: 860px;
+    width: 1696px;
+    children: [listview];
+}
+
+element-icon {
+    size: 400px;
+    horizontal-align: 0.5;
+}
+
+element alternate.normal {
+    background-color: @background;
+}
+
+element-text {
+    enabled: false;
+}
+
+element {
+    margin: 2px;
+    padding: 4px;
+    size: 400px;
+    horizontal-align: 0.5;
+}
+
+listview {
+    spacing: 5px;
+    columns: 4;
+    lines: 2;
+    scrollbar: false;
+    border: none;
+    border-color: @background;
+}
+
+entry {
+    enabled: false;
+}
+
