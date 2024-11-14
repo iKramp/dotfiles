@@ -194,14 +194,7 @@ in {
 
     #java stuff
     jdk
-    jetbrains.idea-community
-    docker
-    wkhtmltopdf-bin #some insecure package don't need for now
-    sass
     maven
-    postgresql
-    nodejs_22
-    chromium
   ] ++ (import ./laptop/packages.nix {inherit pkgs options;});
 
   # Some programs need SUID wrappers, can be configured further or are
