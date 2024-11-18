@@ -345,20 +345,10 @@ window#waybar.empty #window {
     color: @textcolor2;
     background-color: @backgroundlight;
 }
-@keyframes blink {
-    to {
-        background-color: @backgrounddark;
-        color: @textcolor1;
-    }
-}
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
     color: @textcolor3;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    transition: background-color 1s;
 }
 
 #network {
