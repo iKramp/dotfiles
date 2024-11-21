@@ -1,11 +1,9 @@
 local builtin = require('telescope.builtin')
+require('telescope').load_extension('live_grep_args')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'find file' })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'find in git' })
 vim.keymap.set(
     'n',
     '<leader>fs',
-    function()
-        builtin.grep_string({ search = vim.fn.input("Grep > ") });
-    end,
-    { desc = 'find a string in file' }
+    ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
 )
