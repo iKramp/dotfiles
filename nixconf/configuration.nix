@@ -194,11 +194,17 @@ in {
     hyprlock
     ghc
     haskell-language-server
+    elf2uf2-rs
+    gnome.gnome-calculator
 
     #java stuff
     jdk
     maven
-  ] ++ (import ./laptop/packages.nix {inherit pkgs options;});
+  ] ++ (
+    import ./laptop/packages.nix {inherit pkgs options;}
+  ) ++ (
+    import ./desktop/packages.nix {inherit pkgs options;}
+  );
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
