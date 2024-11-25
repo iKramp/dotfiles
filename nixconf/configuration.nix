@@ -196,6 +196,7 @@ in {
     haskell-language-server
     elf2uf2-rs
     gnome.gnome-calculator
+    nodejs_22 # needed for the copilot vim plugin
 
     #java stuff
     jdk
