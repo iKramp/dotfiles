@@ -197,6 +197,7 @@ in {
     elf2uf2-rs
     gnome.gnome-calculator
     nodejs_22 # needed for the copilot vim plugin
+    zig
 
     #java stuff
     jdk
@@ -246,7 +247,7 @@ in {
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
