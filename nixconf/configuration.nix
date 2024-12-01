@@ -81,7 +81,6 @@ in {
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
-    gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     videoDrivers = [
       "amdgpu"
     ];
@@ -125,7 +124,7 @@ in {
     spotify
     steam
     stow
-    gnome.nautilus
+    nautilus
     wireplumber
     pipewire
     vlc
@@ -195,7 +194,7 @@ in {
     ghc
     haskell-language-server
     elf2uf2-rs
-    gnome.gnome-calculator
+    gnome-calculator
     nodejs_22 # needed for the copilot vim plugin
     zig
 
@@ -234,6 +233,9 @@ in {
   };
 
   programs.steam.enable = true;
+
+
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   #make electron apps work
   environment.sessionVariables = {
