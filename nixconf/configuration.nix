@@ -197,6 +197,7 @@ in {
     gnome-calculator
     nodejs_22 # needed for the copilot vim plugin
     zig
+    zls # zig language server
 
     #java stuff
     jdk
