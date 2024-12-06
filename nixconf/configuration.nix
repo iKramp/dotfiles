@@ -184,7 +184,9 @@ in {
     texlab
     jdt-language-server
     libisoburn
-    limine
+    (limine.override {
+      enableAll = true;
+    })
     xxd
     logisim-evolution
     nasm
@@ -241,7 +243,6 @@ in {
   #make electron apps work
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    XDG_CURRENT_DESKTOP = "Sway";
   };
 
   virtualisation.docker.enable = true;
