@@ -1,2 +1,2 @@
 hyprpaper &
-while ~/dotfiles/scripts/random_wallpaper.sh; do sleep 300; done
+while sleep 300; do ~/dotfiles/scripts/random_wallpaper.sh; done
