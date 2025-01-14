@@ -24,6 +24,7 @@ in {
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
+    kernelPackages = pkgs.linuxPackages_latest;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
@@ -155,9 +156,7 @@ in {
     lua-language-server
     ripgrep
     unstable.obs-studio
-    wpsoffice
     tmux
-    unstable.osu-lazer-bin
     ntfs3g
     nvd
     gimp
@@ -169,7 +168,6 @@ in {
     btop
     swaynotificationcenter
     volnoti
-    # modrinth-app
     unstable.hyprpicker
     mpv
     krita
