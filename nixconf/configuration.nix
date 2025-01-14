@@ -59,6 +59,7 @@ in {
     unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {config.allowUnfree = true;};
   };
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
   nixpkgs.config = {
     permittedInsecurePackages = [ 
     "qtwebkit-5.212.0-alpha4"
