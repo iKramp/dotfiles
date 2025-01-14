@@ -199,6 +199,7 @@ in {
     nodejs_22 # needed for the copilot vim plugin
     zig
     zls # zig language server
+    wlogout
 
     #java stuff
     jdk
