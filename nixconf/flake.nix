@@ -33,7 +33,7 @@
             })
           ];
         };
-        abacus_nixos_laptop = {
+        abacus_nixos_laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit system;
           };
