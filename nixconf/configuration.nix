@@ -2,18 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, machine, system, ... }:
 
 let
-  options = import /etc/nixos/options.nix config;
 in {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      (import /etc/nixos/laptop/config.nix { inherit config; inherit pkgs; inherit lib; inherit options; })
-      (import /etc/nixos/desktop/config.nix { inherit config; inherit pkgs; inherit lib; inherit options; })
-    ];
-
   # Bootloader.
   boot = {
     loader = {
@@ -33,7 +25,6 @@ in {
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = options.networking.hostName;
 
   # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
@@ -57,7 +48,13 @@ in {
   # Add unstable and old nerd fonts
   # Allow unfree packages
   nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {config.allowUnfree = true;};
+    unstable = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+      sha256 = "1i2fhjys1f7vapzjqf3k8f3068cbrin60cdfni827cajk2sl42mb";
+    }) {
+      config.allowUnfree = true;
+      inherit system;
+    };
   };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
@@ -208,9 +205,9 @@ in {
     jdk
     maven
   ] ++ (
-    import ./laptop/packages.nix {inherit pkgs options;}
+    import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
-    import ./desktop/packages.nix {inherit pkgs options;}
+    import ./desktop/packages.nix {inherit pkgs machine;}
   );
 
   # Some programs need SUID wrappers, can be configured further or are

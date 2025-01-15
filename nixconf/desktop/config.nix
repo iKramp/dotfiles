@@ -1,2 +1,3 @@
-{config, pkgs, lib, options, ... }: 
-lib.mkIf (options.networking.hostName == "abacusnixos") {}
+{config, pkgs, lib, ... }: {
+    networking.hostName = "abacusnixos";
+}

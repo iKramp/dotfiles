@@ -1,4 +1,4 @@
-{pkgs, options}: 
+{pkgs, machine}: 
 let packages = with pkgs; [
   blueman
   bluez
@@ -6,7 +6,6 @@ let packages = with pkgs; [
   brightnessctl
   mono
 ];
-in if options.networking.hostName == "abacus_nixos_laptop" then
-    builtins.trace "Returning packages for hostname: ${options.networking.hostName}" packages
-  else
-    builtins.trace "Hostname did not match abacus_nixos_laptop (${options.networking.hostName}), returning empty list" []
+in if machine == "laptop" then
+    builtins.trace "Returning packages for laptop" packages
+  else []
