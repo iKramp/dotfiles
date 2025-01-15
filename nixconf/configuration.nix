@@ -122,7 +122,10 @@ in {
     rofi-wayland
     wofi
     waybar
-    rustup
+    
+    cargo
+    crate2nix
+
     spotify
     steam
     stow
