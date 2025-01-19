@@ -120,7 +120,7 @@ in {
     wofi
     waybar
     
-    cargo
+    rustup
     crate2nix
 
     spotify
