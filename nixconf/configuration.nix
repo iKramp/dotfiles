@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, machine, system, ... }:
+{ config, pkgs, pkgs_old, lib, machine, system, ... }:
 
 let
 in {
@@ -47,15 +47,6 @@ in {
 
   # Add unstable and old nerd fonts
   # Allow unfree packages
-  nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-      sha256 = "1i2fhjys1f7vapzjqf3k8f3068cbrin60cdfni827cajk2sl42mb";
-    }) {
-      config.allowUnfree = true;
-      inherit system;
-    };
-  };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
   nixpkgs.config = {
@@ -72,7 +63,7 @@ in {
 #  };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
   fonts.fontconfig.antialias = true;
 
@@ -112,7 +103,7 @@ in {
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-    unstable.neovim
+    neovim
     kitty
     firefox
     lf
@@ -148,7 +139,6 @@ in {
     libgcc
     python3
     libclang
-    libstdcxx5
     gcc
     cmake
     gnumake
@@ -157,7 +147,7 @@ in {
     libpkgconf
     lua-language-server
     ripgrep
-    unstable.obs-studio
+    obs-studio
     tmux
     ntfs3g
     nvd
@@ -169,8 +159,7 @@ in {
     hyprpaper
     btop
     swaynotificationcenter
-    volnoti
-    unstable.hyprpicker
+    hyprpicker
     mpv
     krita
     feh
@@ -185,13 +174,10 @@ in {
     texlab
     jdt-language-server
     libisoburn
-    (limine.override {
-      enableAll = true;
-    })
     xxd
     logisim-evolution
     nasm
-    unstable.cliphist
+    cliphist
     bitwarden
     hyprlock
     ghc
@@ -210,7 +196,12 @@ in {
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
     import ./desktop/packages.nix {inherit pkgs machine;}
-  );
+  ) ++ (with pkgs_old; [
+    volnoti
+    (limine.override {
+      enableAll = true;
+    })
+  ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
