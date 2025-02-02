@@ -198,9 +198,9 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": "󰝟 {icon}  {format_source}",
+        "format": " ",
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": "󰝟 {icon} ",
         "format-muted": "󰝟",
         "format-source": "{volume}% ",
         "format-source-muted": "",
@@ -243,8 +243,8 @@
         "on-click-right": "swaylock"        
     },
     "custom/notification": {
-        "tooltip": false,
-        "format": "{} {icon}",
+        "tooltip": true,
+        "format": "{icon}",
         "format-icons": {
             "notification": "<span foreground='red'><sup></sup></span>",
             "none": "",
@@ -281,7 +281,7 @@
       "format": "{ifname}",
       "format-wifi": " ",
       "format-ethernet": " ",
-      "format-disconnected": "Disconnected",
+      "format-disconnected": "",
       "tooltip-format": " {ifname} via {gwaddri}",
       "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
       "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",

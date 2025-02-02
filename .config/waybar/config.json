@@ -21,7 +21,7 @@
 
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
+        //"custom/appmenu",
         "wlr/taskbar",
         "group/quicklinks",
         "hyprland/window"
@@ -37,7 +37,7 @@
         "group/hardware",
         "pulseaudio",
         "custom/notification",
-        "custom/cliphist",
+        //"custom/cliphist",
         //"idle_inhibitor",
         "tray",
         //"custom/exit",

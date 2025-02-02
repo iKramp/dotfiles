@@ -132,6 +132,7 @@ in {
     vlc
     spacedrive
     git
+    gittyup
     pavucontrol
     playerctl
     (discord.override {
@@ -152,6 +153,7 @@ in {
     cmake
     gnumake
     gdb
+    gdbgui
     libpkgconf
     lua-language-server
     ripgrep
