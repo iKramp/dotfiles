@@ -188,6 +188,7 @@ in {
     zig
     zls # zig language server
     wlogout
+    element
 
     #java stuff
     jdk
