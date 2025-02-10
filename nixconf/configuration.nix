@@ -107,7 +107,9 @@ in {
     kitty
     firefox
     lf
-    rofi-wayland
+    (rofi-wayland.override {
+      plugins = [ pkgs.rofi-calc ];
+    })
     wofi
     waybar
     
@@ -156,7 +158,6 @@ in {
     xdg-utils
     llvmPackages_17.libllvm
     qemu
-    hyprpaper
     btop
     swaynotificationcenter
     hyprpicker
@@ -166,7 +167,6 @@ in {
     udiskie
     SDL2
     nvtopPackages.amd
-    vscode-extensions.vadimcn.vscode-lldb.adapter
     zathura
     texliveFull
     wtype
@@ -201,6 +201,8 @@ in {
     (limine.override {
       enableAll = true;
     })
+    hyprpaper
+    vscode-extensions.vadimcn.vscode-lldb.adapter
   ]);
 
   # Some programs need SUID wrappers, can be configured further or are
