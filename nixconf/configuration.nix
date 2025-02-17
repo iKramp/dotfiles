@@ -64,6 +64,7 @@ in {
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    noto-fonts-cjk-sans
   ];
   fonts.fontconfig.antialias = true;
 
@@ -189,6 +190,7 @@ in {
     zls # zig language server
     wlogout
     element
+    qbittorrent
 
     #java stuff
     jdk
