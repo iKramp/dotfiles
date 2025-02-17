@@ -181,20 +181,12 @@ in {
     cliphist
     bitwarden
     hyprlock
-    ghc
-    haskell-language-server
     elf2uf2-rs
     gnome-calculator
     nodejs_22 # needed for the copilot vim plugin
-    zig
-    zls # zig language server
     wlogout
     element
     qbittorrent
-
-    #java stuff
-    jdk
-    maven
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
