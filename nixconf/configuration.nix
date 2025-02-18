@@ -89,6 +89,10 @@ in {
 
   services.blueman.enable = true;
 
+  services.udev.extraRules = ''
+    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x15b7" ATTR{power/wakeup}="disabled"
+  '';
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nejc = {
     isNormalUser = true;
@@ -241,7 +245,24 @@ in {
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 6666 ];
+    settings = {
+      PasswordAuthentication = false;
+    };
+  };
+  services.fail2ban = {
+    enable = true;
+    maxretry = 5;
+    bantime = "24h"; # Ban IPs for one day on the first ban
+    bantime-increment = {
+      enable = true; # Enable increment of bantime after each violation
+      multipliers = "1 2 4 8 16 32 64";
+      overalljails = true; # Calculate the bantime based on all the violations
+    };
+    jails.sshd.enabled = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
