@@ -1,4 +1,3 @@
-#sudo nix-collect-garbage --delete-older-than 2d
-#sudo nixos-rebuild switch
-#sudo nix-store --optimise
-echo "Not working rn"
+sudo nix-collect-garbage --delete-older-than 2d
+sudo nixos-rebuild switch --flake ~/dotfiles/nixconf/#"$1"
+sudo nix-store --optimise

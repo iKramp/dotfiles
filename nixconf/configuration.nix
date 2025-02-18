@@ -191,6 +191,8 @@ in {
     wlogout
     element
     qbittorrent
+    gns3-gui
+    gns3-server
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
@@ -218,10 +220,15 @@ in {
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      update = "/home/nejc/dotfiles/scripts/update.sh";
+      # update = "/home/nejc/dotfiles/scripts/update.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
       tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
     };
+    shellInit = ''
+      update() {
+        /home/nejc/dotfiles/scripts/update.sh "$@"
+      }
+    '';
     ohMyZsh = {
       enable = true;
       theme = "robbyrussell";
