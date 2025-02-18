@@ -1,18 +1,5 @@
 {
   "nodes": {
-    "hardware-config": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727558460,
-        "narHash": "sha256-GE3ayjpxum9pGETw5kGQ967SSB7GBPDS5+86l/9c+JY=",
-        "path": "/etc/nixos/hardware-configuration.nix",
-        "type": "path"
-      },
-      "original": {
-        "path": "/etc/nixos/hardware-configuration.nix",
-        "type": "path"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1739736696,
@@ -47,7 +34,6 @@
     },
     "root": {
       "inputs": {
-        "hardware-config": "hardware-config",
         "nixpkgs": "nixpkgs",
         "nixpkgs_old": "nixpkgs_old"
       }

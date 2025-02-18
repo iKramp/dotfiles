@@ -4,10 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-24.11";
-    hardware-config = { url = "path:/etc/nixos/hardware-configuration.nix"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nixpkgs_old, hardware-config }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs_old }@inputs: 
     let 
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -24,7 +23,6 @@
           allowBroken = true;
         };
       };
-      hardware_config = import hardware-config;
     in {
       nixosConfigurations = {
         abacusnixos = nixpkgs.lib.nixosSystem {
@@ -32,7 +30,7 @@
             inherit system;
           };
           modules = [
-            hardware_config
+            ./desktop/hardware-configuration.nix
             ./desktop/config.nix
             ({ config, pkgs, lib, ... }: {
               imports = [
@@ -46,7 +44,7 @@
             inherit system;
           };
           modules = [
-            hardware_config
+            ./laptop/hardware-configuration.nix
             ./laptop/config.nix
             ({ config, pkgs, lib, ... }: {
               imports = [
