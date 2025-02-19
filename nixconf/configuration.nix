@@ -193,6 +193,7 @@ in {
     qbittorrent
     gns3-gui
     gns3-server
+    thunderbird
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
