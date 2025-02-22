@@ -26,6 +26,16 @@ def parse_wpctl_status():
     # remove the "[vol:" from the end of the sink name
     for index, sink in enumerate(sinks):
         sinks[index] = sink.split("[vol:")[0].strip()
+
+    # add common names
+    for index, sink in enumerate(sinks):
+        name = sink.split(".")[1].strip()
+        # if containes HDMI/DP, replace it with HDMI
+        if "HDMI" in name or "DP" in name:
+            name = "Monitor"
+        if "Analog Stereo" in name:
+            name = "Speakers/Headphones"
+        sinks[index] = f"{sink.split('.')[0]}. {name}"
     
     # strip the * from the default sink and instead append "- Default" to the end. Looks neater in the wofi list this way.
     for index, sink in enumerate(sinks):
@@ -41,13 +51,10 @@ def parse_wpctl_status():
 output = ''
 sinks = parse_wpctl_status()
 for items in sinks:
-    if items['sink_name'].endswith(" - Default"):
-        output += f"<b>-> {items['sink_name']}</b>\n"
-    else:
-        output += f"{items['sink_name']}\n"
+    output += f"{items['sink_name']}\n"
 
 # Call wofi and show the list. take the selected sink name and set it as the default sink
-wofi_command = f"echo '{output}' | wofi --show=dmenu --hide-scroll --allow-markup --define=hide_search=true --location=top_right --width=600 --height=200 --xoffset=-60"
+wofi_command = f"echo '{output}' | rofi -dmenu -config ~/.config/rofi/rofi-audio.rasi"
 wofi_process = subprocess.run(wofi_command, shell=True, encoding='utf-8', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 if wofi_process.returncode != 0:

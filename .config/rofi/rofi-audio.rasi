@@ -1,0 +1,16 @@
+@import "rofi-app"
+
+configuration {
+    location: 3;
+}
+
+window {
+    width: 300;
+    height: 100;
+    x-offset: -10;
+    y-offset: 10;
+}
+
+inputbar {
+    enabled: false;
+}

@@ -115,7 +115,6 @@ in {
     (rofi-wayland.override {
       plugins = [ pkgs.rofi-calc ];
     })
-    wofi
     waybar
     
     rustup
