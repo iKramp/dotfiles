@@ -214,7 +214,7 @@
             "default": ["", " ", " "]
         },
         "on-click-right": "pavucontrol",
-        "on-click": "sleep 0.1 && ~/dotfiles/.config/waybar/scripts/audio_changer.py"
+        "on-click": "sleep 0.1 && ~/dotfiles/scripts/audio_changer.py"
     },
 
     // Bluetooth
