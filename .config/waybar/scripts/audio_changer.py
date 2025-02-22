@@ -31,11 +31,21 @@ def parse_wpctl_status():
     for index, sink in enumerate(sinks):
         name = sink.split(".")[1].strip()
         # if containes HDMI/DP, replace it with HDMI
-        if "HDMI" in name or "DP" in name:
+        if ("HDMI" in name or "DP" in name) and not "Ice Lake" in name:
             name = "Monitor"
+        # fix this line by reading the first digit that appears in the name and adding it to the name
+        if ("HDMI" in name or "DP" in name) and "Ice Lake" in name:
+            monitor_number = [int(s) for s in name.split() if s.isdigit()][0]
+            name = f"External monitor {monitor_number}"
         if "Analog Stereo" in name:
             name = "Speakers/Headphones"
+        if "Ice Lake" in name and "Speaker" in name:
+            name = "Laptop speaker"
         sinks[index] = f"{sink.split('.')[0]}. {name}"
+    
+                                  
+    # put "External monitor x" at the end of the list
+    sinks = sorted(sinks, key=lambda x: "External monitor" in x)
     
     # strip the * from the default sink and instead append "- Default" to the end. Looks neater in the wofi list this way.
     for index, sink in enumerate(sinks):
