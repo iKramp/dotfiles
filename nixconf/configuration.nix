@@ -145,8 +145,9 @@ in {
     oh-my-zsh
     libgcc
     python3
-    libclang
+    clang
     gcc
+    clang-tools
     cmake
     gnumake
     gdb
@@ -180,13 +181,11 @@ in {
     jdt-language-server
     libisoburn
     xxd
-    logisim-evolution
     nasm
     cliphist
     bitwarden
     hyprlock
     elf2uf2-rs
-    gnome-calculator
     nodejs_22 # needed for the copilot vim plugin
     wlogout
     element
