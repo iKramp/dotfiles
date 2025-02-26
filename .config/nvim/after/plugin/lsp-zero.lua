@@ -23,7 +23,7 @@ lsp_zero.format_on_save({
 })
 
 
-lsp_zero.setup_servers({ 'clangd', 'lua_ls', 'texlab', 'jdtls', 'hls', 'zls' })
+lsp_zero.setup_servers({ 'clangd', 'lua_ls', 'texlab', 'jdtls', 'hls', 'zls', 'eslint', 'html', 'cssls' })
 
 lsp_zero.extend_cmp()
 

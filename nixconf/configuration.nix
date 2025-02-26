@@ -192,6 +192,12 @@ in {
     gns3-gui
     gns3-server
     thunderbird
+    fcitx5
+
+    #OIS - html, css, js
+    vscode-langservers-extracted # contains css, html, json
+    typescript-language-server
+    typescript
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
