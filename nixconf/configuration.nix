@@ -73,6 +73,7 @@ in {
     xkb.variant = "";
     videoDrivers = [
       "amdgpu"
+      "nvidia"
     ];
   };
 
@@ -192,6 +193,8 @@ in {
     gns3-server
     thunderbird
     fcitx5
+    superTuxKart
+    wireshark
 
     #OIS - html, css, js
     vscode-langservers-extracted # contains css, html, json

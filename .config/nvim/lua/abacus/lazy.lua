@@ -98,5 +98,9 @@ require("lazy").setup({
     {
         "lervag/vimtex",
         lazy = false,
+    },
+    {
+        'IogaMaster/neocord',
+        event = 'VeryLazy'
     }
 })
