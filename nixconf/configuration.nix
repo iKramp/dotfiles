@@ -55,12 +55,11 @@ in {
     "openssl-1.1.1w"];
   };
 
-#  hardware.opengl = {
-#    enable = true;
-#    extraPackages = [ pkgs.unstable.mesa ];
-#    driSupport32Bit = true;
-#    extraPackages32 = [ pkgs.unstable.pkgsi686Linux.mesa ];
-#  };
+ hardware.graphics = {
+   enable = true;
+   extraPackages = [ pkgs.mesa ];
+   enable32Bit = true;
+ };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -228,6 +227,7 @@ in {
       # update = "/home/nejc/dotfiles/scripts/update.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
       tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
+      devshell = "./result/bin/activate";
     };
     shellInit = ''
       update() {
