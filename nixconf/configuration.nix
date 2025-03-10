@@ -144,6 +144,7 @@ in {
     oh-my-zsh
     libgcc
     python3
+    mokuro
     clang
     gcc
     clang-tools
