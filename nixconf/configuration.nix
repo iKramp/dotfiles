@@ -76,6 +76,7 @@ in {
       "nvidia"
     ];
   };
+  hardware.nvidia.open = false;
 
   services.pipewire = {
     enable = true;
