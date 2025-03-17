@@ -117,14 +117,17 @@ in {
       plugins = [ pkgs.rofi-calc ];
     })
     waybar
-    
+
+    zip
+    unzip
+
     rustup
     crate2nix
 
     spotify
     steam
     stow
-    nautilus
+    kdePackages.dolphin
     wireplumber
     pipewire
     vlc
