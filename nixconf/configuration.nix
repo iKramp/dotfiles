@@ -200,6 +200,7 @@ in {
     fcitx5
     superTuxKart
     wireshark
+    ripes
 
     #OIS - html, css, js
     vscode-langservers-extracted # contains css, html, json
