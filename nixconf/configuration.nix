@@ -44,6 +44,17 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+      fcitx5-nord
+    ];
+    fcitx5.waylandFrontend= true;
+  };
+
 
   # Add unstable and old nerd fonts
   # Allow unfree packages
@@ -197,7 +208,6 @@ in {
     gns3-gui
     gns3-server
     thunderbird
-    fcitx5
     superTuxKart
     wireshark
     ripes
@@ -212,9 +222,6 @@ in {
     import ./desktop/packages.nix {inherit pkgs machine;}
   ) ++ (with pkgs_old; [
     volnoti
-    (limine.override {
-      enableAll = true;
-    })
     hyprpaper
     vscode-extensions.vadimcn.vscode-lldb.adapter
   ]);
