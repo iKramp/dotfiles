@@ -181,7 +181,6 @@ in {
     qemu
     btop
     swaynotificationcenter
-    hyprpicker
     mpv
     krita
     feh
@@ -200,6 +199,8 @@ in {
     cliphist
     bitwarden
     hyprlock
+    hyprpicker
+    hyprpolkitagent
     elf2uf2-rs
     nodejs_22 # needed for the copilot vim plugin
     wlogout
