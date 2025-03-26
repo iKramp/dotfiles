@@ -16,7 +16,7 @@ in {
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
@@ -207,10 +207,14 @@ in {
     element
     qbittorrent
     gns3-gui
-    gns3-server
     thunderbird
     superTuxKart
+    
+    #RK
     wireshark
+    gns3-server
+    
+    #ARS
     ripes
 
     #OIS - html, css, js
