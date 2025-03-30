@@ -209,6 +209,14 @@ in {
     gns3-gui
     thunderbird
     superTuxKart
+
+    ghidra
+    burpsuite
+    postman
+    ida-free
+    pwntools
+    python312Packages.anysqlite
+    python312Packages.flask
     
     #RK
     wireshark
