@@ -109,7 +109,7 @@ in {
   users.users.nejc = {
     isNormalUser = true;
     description = "Nejc";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" ];
     packages = with pkgs; [];
   };
 
@@ -206,7 +206,6 @@ in {
     wlogout
     element
     qbittorrent
-    gns3-gui
     thunderbird
     superTuxKart
 
@@ -220,7 +219,11 @@ in {
     
     #RK
     wireshark
-    gns3-server
+    gns3-gui
+    inetutils
+    # gns3-server
+    # dynamips
+    # ubridge
     
     #ARS
     ripes
@@ -303,6 +306,12 @@ in {
       overalljails = true; # Calculate the bantime based on all the violations
     };
     jails.sshd.enabled = true;
+  };
+
+  services.gns3-server = {
+    enable = true;
+    ubridge.enable = true;
+    dynamips.enable = true;
   };
 
   # Open ports in the firewall.
