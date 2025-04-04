@@ -16,7 +16,7 @@ in {
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
