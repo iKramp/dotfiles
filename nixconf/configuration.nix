@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs_old, lib, machine, system, ... }:
+{ config, pkgs, pkgs_old, pkgs_24_05, lib, machine, system, ... }:
 
 let
 in {
@@ -68,7 +68,7 @@ in {
 
  hardware.graphics = {
    enable = true;
-   extraPackages = [ pkgs.mesa ];
+   extraPackages = [ pkgs_24_05.amdvlk ];
    enable32Bit = true;
  };
 
@@ -114,6 +114,7 @@ in {
   };
 
   users.defaultUserShell = pkgs.zsh;
+  users.groups.ubridge = {};
 
 
   # List packages installed in system profile. To search, run:
@@ -208,7 +209,9 @@ in {
     qbittorrent
     thunderbird
     superTuxKart
+    ghex
 
+    #CTF
     ghidra
     burpsuite
     postman
@@ -216,14 +219,17 @@ in {
     pwntools
     python312Packages.anysqlite
     python312Packages.flask
+
+    #AMD gpu things
+    lact
     
     #RK
     wireshark
     gns3-gui
     inetutils
-    # gns3-server
-    # dynamips
-    # ubridge
+    gns3-server
+    dynamips
+    ubridge
     
     #ARS
     ripes
@@ -241,6 +247,9 @@ in {
     hyprpaper
     vscode-extensions.vadimcn.vscode-lldb.adapter
   ]);
+
+  systemd.packages = [ pkgs.lact ];
+  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -308,10 +317,17 @@ in {
     jails.sshd.enabled = true;
   };
 
-  services.gns3-server = {
-    enable = true;
-    ubridge.enable = true;
-    dynamips.enable = true;
+  # services.gns3-server = {
+  #   enable = true;
+  #   ubridge.enable = true;
+  #   dynamips.enable = true;
+  # };
+  security.wrappers.ubridge = {
+    source = "/run/current-system/sw/bin/ubridge";
+    capabilities = "cap_net_admin,cap_net_raw=ep";
+    owner = "root";
+    group = "ubridge";
+    permissions = "u+rx,g+rx,o+rx";
   };
 
   # Open ports in the firewall.
