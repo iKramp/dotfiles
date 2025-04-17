@@ -210,6 +210,9 @@ in {
     thunderbird
     superTuxKart
     ghex
+    jq
+    libnotify
+    glib
 
     #CTF
     ghidra
