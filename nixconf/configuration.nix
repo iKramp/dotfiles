@@ -16,7 +16,7 @@ in {
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs_24_05.linuxPackages;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
@@ -213,6 +213,7 @@ in {
     jq
     libnotify
     glib
+    libreoffice
 
     #CTF
     ghidra
