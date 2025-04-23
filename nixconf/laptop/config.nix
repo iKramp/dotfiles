@@ -13,4 +13,12 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
     environment.systemPackages = [];
+
+    services.thermald.enable = true;
+    services.power-profiles-daemon.enable = true;
+
+    services.logind.extraConfig = ''
+      HandleLidSwitch=suspend
+      HandleLidSwitchDocked=suspend
+  '';
 }

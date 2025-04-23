@@ -5,6 +5,7 @@ let packages = with pkgs; [
   networkmanagerapplet
   brightnessctl
   mono
+  powertop
 ];
 in if machine == "laptop" then
     builtins.trace "Returning packages for laptop" packages
