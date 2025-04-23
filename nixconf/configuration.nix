@@ -214,6 +214,7 @@ in {
     libnotify
     glib
     libreoffice
+    baobab
 
     #CTF
     ghidra
