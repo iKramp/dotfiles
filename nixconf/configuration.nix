@@ -215,6 +215,7 @@ in {
     glib
     libreoffice
     baobab
+    blender
 
     #CTF
     ghidra
