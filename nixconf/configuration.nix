@@ -2,10 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs_old, pkgs_24_05, lib, machine, system, ... }:
+{ config, pkgs, pkgs_old, lib, machine, system, ... }:
 
-let
-in {
+{
   # Bootloader.
   boot = {
     loader = {
@@ -16,7 +15,7 @@ in {
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs_24_05.linuxPackages;
+    kernelPackages = pkgs.linuxPackages;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
@@ -44,17 +43,6 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-      fcitx5-nord
-    ];
-    fcitx5.waylandFrontend= true;
-  };
-
 
   # Add unstable and old nerd fonts
   # Allow unfree packages
@@ -66,12 +54,6 @@ in {
     "openssl-1.1.1w"];
   };
 
- hardware.graphics = {
-   enable = true;
-   extraPackages = [ pkgs_24_05.amdvlk ];
-   enable32Bit = true;
- };
-
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
@@ -82,24 +64,9 @@ in {
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
-    videoDrivers = [
-      "amdgpu"
-      "nvidia"
-    ];
-  };
-  hardware.nvidia.open = false;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
   };
 
   services.udisks2.enable = true;
-
-  services.blueman.enable = true;
 
   services.udev.extraRules = ''
     ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x15b7" ATTR{power/wakeup}="disabled"
@@ -125,16 +92,9 @@ in {
     kitty
     firefox
     lf
-    (rofi-wayland.override {
-      plugins = [ pkgs.rofi-calc ];
-    })
-    waybar
 
     zip
     unzip
-
-    rustup
-    crate2nix
 
     spotify
     steam
@@ -179,15 +139,12 @@ in {
     feh
     xdg-utils
     llvmPackages_17.libllvm
-    qemu
     btop
-    swaynotificationcenter
     mpv
     krita
     feh
     udiskie
     SDL2
-    nvtopPackages.amd
     zathura
     texliveFull
     wtype
@@ -216,27 +173,10 @@ in {
     libreoffice
     baobab
     blender
+    nil
+    nixfmt-rfc-style
+    spotify-player
 
-    #CTF
-    ghidra
-    burpsuite
-    postman
-    ida-free
-    pwntools
-    python312Packages.anysqlite
-    python312Packages.flask
-
-    #AMD gpu things
-    lact
-    
-    #RK
-    wireshark
-    gns3-gui
-    inetutils
-    gns3-server
-    dynamips
-    ubridge
-    
     #ARS
     ripes
 
@@ -249,13 +189,8 @@ in {
   ) ++ (
     import ./desktop/packages.nix {inherit pkgs machine;}
   ) ++ (with pkgs_old; [
-    volnoti
-    hyprpaper
     vscode-extensions.vadimcn.vscode-lldb.adapter
   ]);
-
-  systemd.packages = [ pkgs.lact ];
-  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -264,14 +199,12 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.hyprland.enable = true;
 
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      # update = "/home/nejc/dotfiles/scripts/update.sh";
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
       tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
       devshell = "./result/bin/activate";
@@ -291,17 +224,7 @@ in {
   programs.steam.enable = true;
 
 
-  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
-
-  #make electron apps work
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
-
   virtualisation.docker.enable = true;
-
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -323,24 +246,8 @@ in {
     jails.sshd.enabled = true;
   };
 
-  # services.gns3-server = {
-  #   enable = true;
-  #   ubridge.enable = true;
-  #   dynamips.enable = true;
-  # };
-  security.wrappers.ubridge = {
-    source = "/run/current-system/sw/bin/ubridge";
-    capabilities = "cap_net_admin,cap_net_raw=ep";
-    owner = "root";
-    group = "ubridge";
-    permissions = "u+rx,g+rx,o+rx";
-  };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # we don't boot from the internet
+  systemd.network.wait-online.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -4,11 +4,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs_24_05.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 
-  outputs = { self, nixpkgs, nixpkgs_old, nixpkgs_24_05 }@inputs: 
-    let 
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs_old,
+    }:
+    let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -24,41 +28,31 @@
           allowBroken = true;
         };
       };
-      pkgs_24_05 = import nixpkgs_24_05 {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          allowBroken = true;
-        };
-      };
-    in {
+    in
+    {
       nixosConfigurations = {
         abacusnixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit system pkgs_old;
+            machine = "desktop";
           };
           modules = [
             ./desktop/hardware-configuration.nix
             ./desktop/config.nix
-            ({ config, pkgs, lib, ... }: {
-              imports = [
-                (import ./configuration.nix { inherit config pkgs pkgs_old pkgs_24_05 lib system; machine = "desktop"; })
-              ];
-            })
+            ./modules/modules.nix
+            ./configuration.nix
           ];
         };
         abacus_nixos_laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit system pkgs_old;
+            machine = "laptop";
           };
           modules = [
             ./laptop/hardware-configuration.nix
             ./laptop/config.nix
-            ({ config, pkgs, lib, ... }: {
-              imports = [
-                (import ./configuration.nix { inherit config pkgs pkgs_old pkgs_24_05 lib system; machine = "laptop"; })
-              ];
-            })
+            ./modules/modules.nix
+            ./configuration.nix
           ];
         };
       };

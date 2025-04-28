@@ -25,6 +25,16 @@ lsp_zero.format_on_save({
 
 lsp_zero.setup_servers({ 'clangd', 'lua_ls', 'texlab', 'jdtls', 'hls', 'zls', 'eslint', 'ts_ls' , 'html', 'cssls' })
 
+require('lspconfig').nil_ls.setup({
+    settings = {
+        ['nil'] = {
+            formatting = {
+                command = { 'nixfmt' },
+            },
+        },
+    }
+})
+
 lsp_zero.extend_cmp()
 
 local cmp = require('cmp')
