@@ -3,7 +3,7 @@ with lib;
 
 let
     cfg = config.ugs;
-    ugsPackage = import ./ugs/package.nix {
+    ugsPackage = import ./package.nix {
         inherit lib ;
         stdenv = pkgs.stdenv;
         makeWrapper = pkgs.makeWrapper;
