@@ -6,5 +6,6 @@
         ./ctf.nix
         ./rk.nix
         ./desktop.nix
+        ./ugs.nix
     ];
 }
