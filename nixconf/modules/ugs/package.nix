@@ -9,11 +9,10 @@
 }:
 let
   desktopItem = makeDesktopItem {
-    name = "ugs";
-    exec = "ugs";
+    name = "ugs-platform";
+    exec = "ugsplatform";
     comment = "A cross-platform G-Code sender for GRBL, Smoothieware, TinyG and G2core.";
-    desktopName = "Universal-G-Code-Sender";
-    categories = [ "Game" ];
+    desktopName = "ugs-platform";
   };
 
 in
@@ -57,6 +56,6 @@ stdenv.mkDerivation rec {
     sourceProvenance = with sourceTypes; [ binaryBytecode ];
     license = licenses.gpl3;
     platforms = platforms.all;
-    mainProgram = "ugs";
+    mainProgram = "ugsplatform";
   };
 }

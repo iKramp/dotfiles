@@ -18,7 +18,7 @@ in {
             type = types.bool;
             default = false;
             description = ''
-                Enable ugs.
+                Enable ugs platform.
             '';
         };
     };
