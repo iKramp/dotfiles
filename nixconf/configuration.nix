@@ -175,7 +175,7 @@
     blender
     nil
     nixfmt-rfc-style
-    spotify-player
+    meld
 
     #ARS
     ripes

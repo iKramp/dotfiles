@@ -2,5 +2,5 @@
     networking.hostName = "abacusnixos";
 
     amdgpu.enable = true;
-    ugs.enable = true;
+    ctf.enable = true;
 }

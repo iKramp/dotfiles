@@ -2,9 +2,9 @@
 with lib; 
 
 let
-    cfg = config.ctf_challenges;
+    cfg = config.ctf;
 in {
-    options.ctf_challenges = {
+    options.ctf = {
         enable = mkOption {
             type = types.bool;
             default = false;

@@ -5,12 +5,7 @@ let
     cfg = config.ugs;
     ugsPackage = import ./package.nix {
         inherit lib ;
-        stdenv = pkgs.stdenv;
-        makeWrapper = pkgs.makeWrapper;
-        makeDesktopItem = pkgs.makeDesktopItem;
-        jdk = pkgs.jdk;
-        fetchzip = pkgs.fetchzip;
-        copyDesktopItems = pkgs.copyDesktopItems;
+        pkgs = pkgs;
     };
 in {
     options.ugs = {
