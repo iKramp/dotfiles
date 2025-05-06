@@ -3,4 +3,6 @@
 
     amdgpu.enable = true;
     ctf.enable = true;
+
+    boot.crashDump.enable = true;
 }
