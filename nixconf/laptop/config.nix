@@ -2,5 +2,5 @@
     networking.hostName = "abacus_nixos_laptop";
 
     bluetooth.enable = true;
-    nvidia.enable = true;
+    # nvidia.enable = true;
 }
