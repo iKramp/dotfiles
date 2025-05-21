@@ -100,7 +100,7 @@ require("lazy").setup({
         lazy = false,
     },
     {
-        'IogaMaster/neocord',
-        event = 'VeryLazy'
+        'vyfor/cord.nvim',
+        build = ':Cord update',
     }
 })
