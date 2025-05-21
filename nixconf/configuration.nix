@@ -176,6 +176,7 @@
     nil
     nixfmt-rfc-style
     meld
+    qpwgraph
 
     #ARS
     ripes
