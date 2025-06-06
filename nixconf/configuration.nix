@@ -15,7 +15,7 @@
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_5_15;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
