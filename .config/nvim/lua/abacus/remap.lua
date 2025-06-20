@@ -14,6 +14,9 @@ vim.api.nvim_set_keymap('v', '<leader>y', '"+y', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>Y', '"+Y', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>y', '"+y', {noremap = true})
 
+vim.api.nvim_set_keymap('n', '<MiddleMouse>', '<nop>', {noremap = false})
+vim.api.nvim_set_keymap('i', '<MiddleMouse>', '<nop>', {noremap = false})
+
 vim.api.nvim_command("command W write")
 
 

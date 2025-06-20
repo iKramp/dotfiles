@@ -3,4 +3,5 @@
 
     bluetooth.enable = true;
     # nvidia.enable = true;
+    ctf.enable = true;
 }

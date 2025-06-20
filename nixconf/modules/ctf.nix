@@ -19,7 +19,7 @@ in {
             ghidra
             # burpsuite
             # postman
-            ida-free
+            # ida-free
             pwntools
         ];
     };
