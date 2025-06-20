@@ -120,7 +120,7 @@
     oh-my-zsh
     libgcc
     python3
-    mokuro
+    # mokuro #broken because of cython
     clang
     gcc
     clang-tools
@@ -177,6 +177,7 @@
     nixfmt-rfc-style
     meld
     qpwgraph
+    man-pages
 
     #ARS
     ripes
