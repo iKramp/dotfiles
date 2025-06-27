@@ -119,7 +119,8 @@
     grimblast
     oh-my-zsh
     libgcc
-    python3
+    python312
+    python312Packages.gmpy2
     # mokuro #broken because of cython
     clang
     gcc
@@ -178,6 +179,7 @@
     meld
     qpwgraph
     man-pages
+    gparted
 
     #ARS
     ripes
