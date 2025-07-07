@@ -212,6 +212,7 @@
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
       tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
       devshell = "./result/bin/activate";
+      buildShell = "nix build ./\#devShells.x86_64-linux.default";
     };
     shellInit = ''
       update() {
