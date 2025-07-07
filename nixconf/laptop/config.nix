@@ -4,4 +4,5 @@
     bluetooth.enable = true;
     # nvidia.enable = true;
     ctf.enable = true;
+    viennabc.enable = true;
 }

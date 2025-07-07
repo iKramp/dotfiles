@@ -7,5 +7,7 @@
         ./rk.nix
         ./desktop.nix
         ./ugs/ugs.nix
+        ./virtualbox.nix
+        ./viennabc.nix
     ];
 }

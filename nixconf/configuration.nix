@@ -15,10 +15,13 @@
       timeout = 100000000;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_5_15;
+    kernelPackages = pkgs.linuxPackages_latest;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
   };
+
+  networking.firewall.enable = false;
+  networking.nftables.enable = false;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -204,6 +207,11 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.wireshark.enable = true;
+  programs.wireshark.usbmon.enable = true;
+  programs.wireshark.dumpcap.enable = true;
+  programs.wireshark.package = pkgs.wireshark;
+
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
@@ -228,6 +236,10 @@
 
   programs.steam.enable = true;
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    libgcc
+  ];
 
   virtualisation.docker.enable = true;
 
@@ -240,7 +252,7 @@
     };
   };
   services.fail2ban = {
-    enable = true;
+    enable = false;
     maxretry = 5;
     bantime = "24h"; # Ban IPs for one day on the first ban
     bantime-increment = {
