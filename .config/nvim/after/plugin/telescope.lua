@@ -13,7 +13,7 @@ require('telescope').setup({
             'node_modules',
             '.git',
             'dist',
-            'build',
+            'build/',
             'vendor',
             'coverage',
             'target',
