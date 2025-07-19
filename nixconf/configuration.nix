@@ -139,7 +139,7 @@
     tmux
     ntfs3g
     nvd
-    gimp
+    gimp3
     feh
     xdg-utils
     llvmPackages_17.libllvm
@@ -183,6 +183,7 @@
     qpwgraph
     man-pages
     gparted
+    docker-compose
 
     #ARS
     ripes
