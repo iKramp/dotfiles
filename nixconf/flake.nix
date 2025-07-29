@@ -2,8 +2,7 @@
   description = "My nixos config";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/dd9ec0655a458b5ac0993748c7b702565f6fc245";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-24.11";
   };
 
