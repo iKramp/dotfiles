@@ -111,9 +111,10 @@
     gittyup
     pavucontrol
     playerctl
-    (discord.override {
-        withVencord = true;
-    })
+    # (discord.override {
+    #     withVencord = true;
+    # })
+    vesktop
     unzip
     neofetch
     wl-clipboard
@@ -184,6 +185,10 @@
     man-pages
     gparted
     docker-compose
+    
+    ergogen
+    kicad-small
+    freecad-wayland
 
     #ARS
     ripes
