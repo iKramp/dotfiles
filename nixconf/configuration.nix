@@ -190,6 +190,8 @@
     kicad-small
     freecad-wayland
 
+    sage
+
     #ARS
     ripes
 
