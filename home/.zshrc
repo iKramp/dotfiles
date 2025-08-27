@@ -20,3 +20,7 @@ export ARCHFLAGS="-arch x86_64"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=unix:///var/run/docker.sock
 export jwkPath=/home/nejc/temp/jwk.json
 export config=nejc
+
+alias l="ls -lthra"
+
+ZSH_THEME="robbyrussell"

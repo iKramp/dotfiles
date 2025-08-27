@@ -62,6 +62,8 @@ output = ''
 sinks = parse_wpctl_status()
 for items in sinks:
     output += f"{items['sink_name']}\n"
+#remove last \n
+output = output.strip()
 
 # Call wofi and show the list. take the selected sink name and set it as the default sink
 wofi_command = f"echo '{output}' | rofi -dmenu -config ~/.config/rofi/rofi-audio.rasi"
