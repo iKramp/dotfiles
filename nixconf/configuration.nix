@@ -143,7 +143,7 @@
     gimp3
     feh
     xdg-utils
-    llvmPackages_17.libllvm
+    llvmPackages_18.libllvm
     btop
     mpv
     krita
@@ -170,7 +170,7 @@
     element
     qbittorrent
     thunderbird
-    superTuxKart
+    # superTuxKart
     ghex
     jq
     libnotify
@@ -191,14 +191,6 @@
     freecad-wayland
 
     sage
-
-    #ARS
-    ripes
-
-    #OIS - html, css, js
-    vscode-langservers-extracted # contains css, html, json
-    typescript-language-server
-    typescript
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (

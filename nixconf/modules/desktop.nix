@@ -51,7 +51,7 @@ in
       [
         swaynotificationcenter
         waybar
-        (rofi-wayland.override {
+        (rofi.override {
           plugins = [ pkgs.rofi-calc ];
         })
         eww
