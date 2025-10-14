@@ -1,2 +1,5 @@
 lazy-lock.json
 cached_layouts
+
+.local/share/icons/*
+!.local/share/icons/NotwaitaBlack/
