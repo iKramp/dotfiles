@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs_mindustry.url = "nixpkgs/a19cd4ffb1f4b953a76f3ac29c6520d0b1877108";
   };
 
   outputs =
@@ -11,6 +12,7 @@
       self,
       nixpkgs,
       nixpkgs_old,
+      nixpkgs_mindustry,
     }:
     let
       system = "x86_64-linux";
@@ -28,12 +30,19 @@
           allowBroken = true;
         };
       };
+      pkgs_mindustry = import nixpkgs_mindustry {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowBroken = true;
+        };
+      };
     in
     {
       nixosConfigurations = {
         abacusnixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system pkgs_old;
+            inherit system pkgs_old pkgs_mindustry;
             machine = "desktop";
           };
           modules = [

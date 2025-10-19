@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs_old, lib, machine, system, ... }:
+{ config, pkgs, pkgs_old, pkgs_mindustry, lib, machine, system, ... }:
 
 {
   # Bootloader.
@@ -79,7 +79,7 @@
   users.users.nejc = {
     isNormalUser = true;
     description = "Nejc";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" "adbusers" ];
     packages = with pkgs; [];
   };
 
@@ -190,11 +190,15 @@
     kicad-small
     freecad-wayland
 
-    sage
+    # (libtiff.override {
+    #   lerc = true;
+    # })
+    libtiff
+
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
-    import ./desktop/packages.nix {inherit pkgs machine;}
+    import ./desktop/packages.nix {inherit pkgs pkgs_mindustry machine;}
   ) ++ (with pkgs_old; [
     vscode-extensions.vadimcn.vscode-lldb.adapter
   ]);
@@ -207,10 +211,14 @@
   #   enableSSHSupport = true;
   # };
 
+  hardware.keyboard.qmk.enable = true;
+
   programs.wireshark.enable = true;
   programs.wireshark.usbmon.enable = true;
   programs.wireshark.dumpcap.enable = true;
   programs.wireshark.package = pkgs.wireshark;
+
+  programs.adb.enable = true;
 
   programs.zsh = {
     enable = true;
