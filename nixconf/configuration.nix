@@ -71,8 +71,12 @@
 
   services.udisks2.enable = true;
 
+  #first for sleep
+  #rest for stm32 dev
   services.udev.extraRules = ''
     ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x15b7" ATTR{power/wakeup}="disabled"
+
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374e", MODE:="0666", TAG+="uaccess", TAG+="udev-acl"
   '';
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -195,6 +199,8 @@
     # })
     libtiff
 
+    stm32cubemx
+
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
   ) ++ (
@@ -270,6 +276,9 @@
     };
     jails.sshd.enabled = true;
   };
+
+  #needed for swaync to donwload the cover art
+  services.gvfs.enable = true;
 
   # we don't boot from the internet
   systemd.network.wait-online.enable = false;
