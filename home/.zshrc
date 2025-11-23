@@ -9,6 +9,6 @@ export ARCHFLAGS="-arch x86_64"
 export jwkPath=/home/nejc/temp/jwk.json
 export config=nejc
 
-alias l="ls -lthra"
+alias l="ls -lha"
 
 ZSH_THEME="robbyrussell"
