@@ -164,7 +164,7 @@
     xxd
     nasm
     cliphist
-    bitwarden
+    bitwarden-desktop
     hyprlock
     hyprpicker
     hyprpolkitagent
@@ -189,14 +189,12 @@
     man-pages
     gparted
     docker-compose
+    element-desktop
     
     ergogen
     kicad-small
     freecad-wayland
 
-    # (libtiff.override {
-    #   lerc = true;
-    # })
     libtiff
 
     stm32cubemx
