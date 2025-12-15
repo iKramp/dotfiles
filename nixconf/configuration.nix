@@ -113,6 +113,7 @@
     spacedrive
     git
     gittyup
+    meld
     pavucontrol
     playerctl
     # (discord.override {
@@ -194,6 +195,7 @@
     ergogen
     kicad-small
     freecad-wayland
+    ffmpeg
 
     libtiff
 
