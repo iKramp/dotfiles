@@ -23,6 +23,21 @@
   networking.firewall.enable = false;
   networking.nftables.enable = false;
 
+  # Needed for qemu
+  networking.interfaces.tap0 = {
+    ipv4.addresses = [{
+      address = "192.168.178.1";
+      prefixLength = 24;
+    }];
+    virtual = true;
+    virtualOwner = "nejc";
+  };
+
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [ "tap0" ];
+  };
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
@@ -83,7 +98,7 @@
   users.users.nejc = {
     isNormalUser = true;
     description = "Nejc";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" "adbusers" "network"];
     packages = with pkgs; [];
   };
 
@@ -191,6 +206,7 @@
     gparted
     docker-compose
     element-desktop
+    signal-desktop
     
     ergogen
     kicad-small
