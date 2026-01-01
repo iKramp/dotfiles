@@ -18,6 +18,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   };
 
   networking.firewall.enable = false;
@@ -119,7 +120,6 @@
     unzip
 
     spotify
-    steam
     stow
     kdePackages.dolphin
     wireplumber
@@ -131,10 +131,10 @@
     meld
     pavucontrol
     playerctl
-    # (discord.override {
-    #     withVencord = true;
-    # })
     vesktop
+    (discord.override {
+        withVencord = true;
+    })
     unzip
     neofetch
     wl-clipboard
@@ -264,7 +264,10 @@
     };
   };
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    # package = pkgs.steam-millennium;
+  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

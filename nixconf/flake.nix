@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs_mindustry.url = "nixpkgs/a19cd4ffb1f4b953a76f3ac29c6520d0b1877108";
+    millennium.url = "git+https://github.com/michaelgoldenn/Millennium";
   };
 
   outputs =
@@ -13,25 +14,29 @@
       nixpkgs,
       nixpkgs_old,
       nixpkgs_mindustry,
+      millennium,
     }:
     let
+      overlays = [
+        millennium.overlays.default
+      ];
       system = "x86_64-linux";
       pkgs = import nixpkgs {
-        inherit system;
+        inherit system overlays;
         config = {
           allowUnfree = true;
           allowBroken = true;
         };
       };
       pkgs_old = import nixpkgs_old {
-        inherit system;
+        inherit system overlays;
         config = {
           allowUnfree = true;
           allowBroken = true;
         };
       };
       pkgs_mindustry = import nixpkgs_mindustry {
-        inherit system;
+        inherit system overlays;
         config = {
           allowUnfree = true;
           allowBroken = true;
