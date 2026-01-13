@@ -190,6 +190,7 @@
     element
     qbittorrent
     thunderbird
+    android-tools
     # superTuxKart
     ghex
     jq
@@ -239,8 +240,6 @@
   programs.wireshark.usbmon.enable = true;
   programs.wireshark.dumpcap.enable = true;
   programs.wireshark.package = pkgs.wireshark;
-
-  programs.adb.enable = true;
 
   programs.zsh = {
     enable = true;
