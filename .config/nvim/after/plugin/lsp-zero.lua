@@ -10,6 +10,9 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set({ 'n', 'x' }, 'gf', function()
         vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
     end, { desc = 'format buffer' })
+
+    vim.keymap.del('n', 'gr', { buffer = bufnr })
+    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr, desc = 'LSP references (Telescope)' })
 end)
 
 lsp_zero.format_on_save({

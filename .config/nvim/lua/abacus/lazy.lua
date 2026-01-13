@@ -112,5 +112,5 @@ require("lazy").setup({
         ---@type render.md.UserConfig
         opts = {},
     },
-    { 'RRethy/vim-illuminate' }
+    { 'RRethy/vim-illuminate' },
 })
