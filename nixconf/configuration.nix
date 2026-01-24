@@ -208,6 +208,8 @@
     docker-compose
     element-desktop
     signal-desktop
+
+    R
     
     ergogen
     kicad-small

@@ -55,9 +55,10 @@ in
           plugins = [ pkgs.rofi-calc ];
         })
         eww
+        swayosd
       ]
       ++ (with pkgs_old; [
-        volnoti
+        # volnoti
         hyprpaper
       ]);
 
