@@ -71,19 +71,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1767640445,
-        "narHash": "sha256-UWYqmD7JFBEDBHWYcqE6s6c77pWdcU/i+bwD6XxMb8A=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "9f0c42f8bc7151b8e7e5840fb3bd454ad850d8c5",
-=======
         "lastModified": 1769018530,
         "narHash": "sha256-MJ27Cy2NtBEV5tsK+YraYr2g851f3Fl1LpNHDzDX15c=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "88d3861acdd3d2f0e361767018218e51810df8a1",
->>>>>>> baac813 (hyprland 2 monitors)
         "type": "github"
       },
       "original": {
