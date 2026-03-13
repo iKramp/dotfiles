@@ -26,7 +26,7 @@ lsp_zero.format_on_save({
 })
 
 
-lsp_zero.setup_servers({ 'clangd', 'lua_ls', 'texlab', 'jdtls', 'hls', 'zls', 'eslint', 'ts_ls' , 'html', 'cssls' })
+lsp_zero.setup_servers({ 'clangd', 'lua_ls', 'texlab', 'jdtls', 'hls', 'zls', 'eslint', 'ts_ls' , 'html', 'cssls', 'qmlls' })
 
 require('lspconfig').nil_ls.setup({
     settings = {

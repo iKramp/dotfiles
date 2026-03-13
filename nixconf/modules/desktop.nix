@@ -3,6 +3,7 @@
   lib,
   pkgs,
   pkgs_old,
+  hyprshutdown,
   ...
 }:
 with lib;
@@ -54,12 +55,19 @@ in
         (rofi.override {
           plugins = [ pkgs.rofi-calc ];
         })
-        eww
+        
+        quickshell
+        qt6.qtdeclarative #needed for writing config
+
         swayosd
+        
+        hyprlock
+        hyprpicker
+        hyprpaper
+        hyprshutdown.packages.${pkgs.system}.default
+        hypridle
       ]
       ++ (with pkgs_old; [
-        # volnoti
-        hyprpaper
       ]);
 
     programs.hyprland.enable = true;

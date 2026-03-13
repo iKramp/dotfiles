@@ -24,6 +24,11 @@
   networking.firewall.enable = false;
   networking.nftables.enable = false;
 
+  networking.extraHosts =
+  ''
+    127.0.0.1 kafka
+  '';
+
   # Needed for qemu
   networking.interfaces.tap0 = {
     ipv4.addresses = [{
@@ -43,6 +48,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
@@ -135,6 +145,7 @@
     (discord.override {
         withVencord = true;
     })
+    slack
     unzip
     neofetch
     wl-clipboard
@@ -181,9 +192,7 @@
     nasm
     cliphist
     bitwarden-desktop
-    hyprlock
-    hyprpicker
-    hyprpolkitagent
+    hyprpolkitagent #leave in general config, polkit is generic enough
     elf2uf2-rs
     nodejs_22 # needed for the copilot vim plugin
     wlogout
@@ -209,7 +218,7 @@
     element-desktop
     signal-desktop
 
-    R
+    wayscriber
     
     ergogen
     kicad-small
@@ -219,6 +228,8 @@
     libtiff
 
     stm32cubemx
+
+    wireguard-tools
 
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}

@@ -6,6 +6,7 @@
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs_mindustry.url = "nixpkgs/a19cd4ffb1f4b953a76f3ac29c6520d0b1877108";
     millennium.url = "git+https://github.com/michaelgoldenn/Millennium";
+    hyprshutdown.url = "github:hyprwm/hyprshutdown";
   };
 
   outputs =
@@ -15,6 +16,7 @@
       nixpkgs_old,
       nixpkgs_mindustry,
       millennium,
+      hyprshutdown,
     }:
     let
       overlays = [
@@ -47,7 +49,7 @@
       nixosConfigurations = {
         abacusnixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system pkgs_old pkgs_mindustry;
+            inherit system pkgs_old pkgs_mindustry hyprshutdown;
             machine = "desktop";
           };
           modules = [
@@ -59,7 +61,7 @@
         };
         abacus_nixos_laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system pkgs_old;
+            inherit system pkgs_old pkgs_mindustry hyprshutdown;
             machine = "laptop";
           };
           modules = [
