@@ -147,15 +147,14 @@
     })
     slack
     unzip
-    neofetch
+    fastfetch
     wl-clipboard
     grim
     slurp
     grimblast
     oh-my-zsh
     libgcc
-    python312
-    python312Packages.gmpy2
+    python313
     # mokuro #broken because of cython
     clang
     gcc
@@ -260,13 +259,18 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       nconf = "nvim /home/nejc/dotfiles/nixconf/configuration.nix";
-      tershell = "cd /home/nejc/programming/Terralistic && nix-shell -p gcc pkg-config SDL2 xorg.libXext xorg.libXi xorg.libXcursor xorg.libXrandr xorg.libXScrnSaver --command 'zsh -c nvim .'";
       devshell = "./result/bin/activate";
       buildShell = "nix build ./\#devShells.x86_64-linux.default";
     };
     shellInit = ''
       update() {
         /home/nejc/dotfiles/scripts/update.sh "$@"
+      }
+      nxshell() {
+        nix shell ''${@/#/nixpkgs#} --command zsh
+      }
+      nxrun() {
+        nix run nixpkgs#"$@"
       }
     '';
     ohMyZsh = {
