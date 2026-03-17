@@ -32,7 +32,7 @@
   # Needed for qemu
   networking.interfaces.tap0 = {
     ipv4.addresses = [{
-      address = "10.0.0.0";
+      address = "10.0.0.1";
       prefixLength = 24;
     }];
     virtual = true;
@@ -177,7 +177,6 @@
     btop
     mpv
     krita
-    feh
     udiskie
     SDL2
     zathura
@@ -282,7 +281,6 @@
 
   programs.steam = {
     enable = true;
-    # package = pkgs.steam-millennium;
   };
 
   programs.nix-ld.enable = true;

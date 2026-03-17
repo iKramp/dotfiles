@@ -284,7 +284,7 @@
       "format-ethernet": " ",
       "format-disconnected": "",
       "tooltip-format": " {ifname} via {gwaddri}",
-      "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+      "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}GHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
       "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
       "tooltip-format-disconnected": "Disconnected",
       "max-length": 50,
