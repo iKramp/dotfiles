@@ -21,7 +21,7 @@ in {
             postman
             # ida-free
             pwntools
-            python312
+            python313
             python313Packages.pwntools
             pwntools
         ];

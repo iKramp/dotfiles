@@ -217,17 +217,23 @@
     signal-desktop
 
     wayscriber
+
+    r2modman #ultrakill mod manager
     
     ergogen
     kicad-small
     freecad-wayland
     ffmpeg
 
+    ngrok
+
     libtiff
 
     stm32cubemx
 
     wireguard-tools
+
+    kdePackages.okular
 
   ] ++ (
     import ./laptop/packages.nix {inherit pkgs machine;}
@@ -287,6 +293,8 @@
   programs.nix-ld.libraries = with pkgs; [
     libgcc
   ];
+
+  programs.fuse.userAllowOther = true;
 
   virtualisation.docker.enable = true;
 
