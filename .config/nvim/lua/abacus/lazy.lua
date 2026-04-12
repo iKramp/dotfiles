@@ -33,10 +33,6 @@ require("lazy").setup({
     { 'ThePrimeagen/harpoon' },
     { 'mbbill/undotree' },
     { 'tpope/vim-fugitive' },
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x'
-    },
     { "williamboman/mason.nvim" },
     { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
     { 'neovim/nvim-lspconfig' },
