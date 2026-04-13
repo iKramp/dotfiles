@@ -23,7 +23,6 @@ in {
             pwntools
             python313
             python313Packages.pwntools
-            pwntools
         ];
     };
 }
