@@ -63,7 +63,7 @@ vim.lsp.config('nil_ls', {
 vim.lsp.enable({
     'clangd', 'lua_ls', 'texlab', 'hls',
     'zls', 'eslint', 'ts_ls', 'html', 'cssls', 'qmlls', 'gopls',
-    'nil_ls', 'jdtls',
+    'nil_ls', 'jdtls', 'pylsp', 'ocamllsp'
 })
 
 local cmp = require('cmp')
