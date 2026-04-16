@@ -225,9 +225,10 @@
     freecad-wayland
     ffmpeg
 
-    ngrok
+    openconnect
 
     libtiff
+    ngrok
 
     stm32cubemx
 
