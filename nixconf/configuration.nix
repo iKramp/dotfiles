@@ -109,7 +109,7 @@
   users.users.nejc = {
     isNormalUser = true;
     description = "Nejc";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" "adbusers" "network"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" "adbusers" "network" "postgres"];
     packages = with pkgs; [];
   };
 
