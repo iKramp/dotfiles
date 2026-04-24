@@ -122,6 +122,7 @@
 
   environment.systemPackages = with pkgs; [
     neovim
+    fd #used by nvim-treesitter
     kitty
     firefox
     lf

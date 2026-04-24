@@ -1,5 +1,8 @@
+require("vim._core.ui2").enable({})
 require("abacus.remap")
 require("abacus.lazy")
+
+
 vim.cmd.colorscheme "catppuccin-mocha"
 
 

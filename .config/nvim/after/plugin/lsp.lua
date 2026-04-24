@@ -42,12 +42,6 @@ vim.lsp.config('*', {
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
--- jdtls needs its cmd path set manually (it's not on $PATH by default)
-vim.lsp.config('jdtls', {
-    cmd = { '/path/to/jdtls' },  -- adjust this
-})
-vim.lsp.enable('jdtls')
-
 -- nil_ls: custom nixfmt formatter
 vim.lsp.config('nil_ls', {
     settings = {
