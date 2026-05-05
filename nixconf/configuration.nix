@@ -2,7 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs_old, pkgs_mindustry, lib, machine, system, ... }:
+{
+  config,
+  pkgs,
+  pkgs_old,
+  pkgs_mindustry,
+  lib,
+  machine,
+  system,
+  ...
+}:
 
 {
   # Bootloader.
@@ -24,17 +33,19 @@
   networking.firewall.enable = false;
   networking.nftables.enable = false;
 
-  networking.extraHosts =
-  ''
+  # kafka for ls central server
+  networking.extraHosts = ''
     127.0.0.1 kafka
   '';
 
   # Needed for qemu
   networking.interfaces.tap0 = {
-    ipv4.addresses = [{
-      address = "10.0.0.1";
-      prefixLength = 24;
-    }];
+    ipv4.addresses = [
+      {
+        address = "10.0.0.1";
+        prefixLength = 24;
+      }
+    ];
     virtual = true;
     virtualOwner = "nejc";
   };
@@ -44,7 +55,10 @@
     internalInterfaces = [ "tap0" ];
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -72,15 +86,15 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-
   # Add unstable and old nerd fonts
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
   nixpkgs.config = {
-    permittedInsecurePackages = [ 
-    "qtwebkit-5.212.0-alpha4"
-    "openssl-1.1.1w"];
+    permittedInsecurePackages = [
+      "qtwebkit-5.212.0-alpha4"
+      "openssl-1.1.1w"
+    ];
   };
 
   fonts.packages = with pkgs; [
@@ -109,141 +123,149 @@
   users.users.nejc = {
     isNormalUser = true;
     description = "Nejc";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirt" "ubridge" "wireshark" "adbusers" "network" "postgres"];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "kvm"
+      "libvirt"
+      "ubridge"
+      "wireshark"
+      "adbusers"
+      "network"
+      "postgres"
+    ];
+    packages = with pkgs; [ ];
   };
 
   users.defaultUserShell = pkgs.zsh;
-  users.groups.ubridge = {};
-
+  users.groups.ubridge = { };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    fd #used by nvim-treesitter
-    kitty
-    firefox
-    lf
+  environment.systemPackages =
+    with pkgs;
+    [
+      kitty
+      firefox
+      lf
 
-    zip
-    unzip
+      zip
+      unzip
 
-    spotify
-    stow
-    kdePackages.dolphin
-    wireplumber
-    pipewire
-    vlc
-    spacedrive
-    git
-    gittyup
-    meld
-    pavucontrol
-    playerctl
-    vesktop
-    (discord.override {
+      spotify
+      stow
+      kdePackages.dolphin
+      wireplumber
+      pipewire
+      vlc
+      spacedrive
+      git
+      gittyup
+      meld
+      pavucontrol
+      playerctl
+      vesktop
+      (discord.override {
         withVencord = true;
-    })
-    slack
-    unzip
-    fastfetch
-    wl-clipboard
-    grim
-    slurp
-    grimblast
-    oh-my-zsh
-    libgcc
-    python313
-    # mokuro #broken because of cython
-    clang
-    gcc
-    clang-tools
-    cmake
-    gnumake
-    gdb
-    gdbgui
-    libpkgconf
-    lua-language-server
-    ripgrep
-    obs-studio
-    tmux
-    ntfs3g
-    nvd
-    gimp3
-    feh
-    xdg-utils
-    llvmPackages_18.libllvm
-    btop
-    mpv
-    krita
-    udiskie
-    SDL2
-    zathura
-    texliveFull
-    wtype
-    tree-sitter
-    texlab
-    jdt-language-server
-    libisoburn
-    xxd
-    nasm
-    cliphist
-    bitwarden-desktop
-    hyprpolkitagent #leave in general config, polkit is generic enough
-    elf2uf2-rs
-    nodejs_22 # needed for the copilot vim plugin
-    wlogout
-    element
-    qbittorrent
-    thunderbird
-    android-tools
-    # superTuxKart
-    ghex
-    jq
-    libnotify
-    glib
-    libreoffice
-    baobab
-    blender
-    nil
-    nixfmt-rfc-style
-    meld
-    qpwgraph
-    man-pages
-    gparted
-    docker-compose
-    element-desktop
-    signal-desktop
+      })
+      slack
+      unzip
+      fastfetch
+      wl-clipboard
+      grim
+      slurp
+      grimblast
+      oh-my-zsh
+      libgcc
+      python313
+      # mokuro #broken because of cython
+      clang
+      gcc
+      clang-tools
+      cmake
+      gnumake
+      gdb
+      gdbgui
+      libpkgconf
+      lua-language-server
+      ripgrep
+      obs-studio
+      tmux
+      ntfs3g
+      nvd
+      gimp3
+      feh
+      xdg-utils
+      llvmPackages_18.libllvm
+      btop
+      mpv
+      krita
+      udiskie
+      SDL2
+      zathura
+      texliveFull
+      wtype
+      texlab
+      jdt-language-server
+      libisoburn
+      xxd
+      nasm
+      cliphist
+      bitwarden-desktop
+      hyprpolkitagent # leave in general config, polkit is generic enough
+      elf2uf2-rs
+      nodejs_22 # needed for the copilot vim plugin
+      wlogout
+      element
+      qbittorrent
+      thunderbird
+      android-tools
+      # superTuxKart
+      ghex
+      jq
+      libnotify
+      glib
+      libreoffice
+      baobab
+      blender
+      nil
+      nixfmt-rfc-style
+      meld
+      qpwgraph
+      man-pages
+      gparted
+      docker-compose
+      element-desktop
+      signal-desktop
 
-    wayscriber
+      wayscriber
 
-    r2modman #ultrakill mod manager
-    
-    ergogen
-    kicad-small
-    freecad-wayland
-    ffmpeg
+      r2modman # ultrakill mod manager
 
-    openconnect
+      ergogen
+      kicad-small
+      freecad-wayland
+      ffmpeg
 
-    libtiff
-    ngrok
+      openconnect
 
-    stm32cubemx
+      libtiff
+      intiface-central
 
-    wireguard-tools
+      stm32cubemx
 
-    kdePackages.okular
+      wireguard-tools
 
-  ] ++ (
-    import ./laptop/packages.nix {inherit pkgs machine;}
-  ) ++ (
-    import ./desktop/packages.nix {inherit pkgs pkgs_mindustry machine;}
-  ) ++ (with pkgs_old; [
-    vscode-extensions.vadimcn.vscode-lldb.adapter
-  ]);
+      kdePackages.okular
+
+    ]
+    ++ (import ./laptop/packages.nix { inherit pkgs machine; })
+    ++ (import ./desktop/packages.nix { inherit pkgs pkgs_mindustry machine; })
+    ++ (with pkgs_old; [
+      vscode-extensions.vadimcn.vscode-lldb.adapter
+    ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

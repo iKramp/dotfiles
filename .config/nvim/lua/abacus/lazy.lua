@@ -28,7 +28,8 @@ require("lazy").setup({
     },
     {
         'nvim-treesitter/nvim-treesitter',
-        cmd = 'TSUpdate'
+        cmd = 'TSUpdate',
+        branch = 'main',
     },
     { 'ThePrimeagen/harpoon' },
     { 'mbbill/undotree' },
@@ -70,7 +71,7 @@ require("lazy").setup({
         opts = {}
     },
     {
-        'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
+        'hiphish/rainbow-delimiters.nvim',
         --event = 'Bu'
     },
     {
@@ -99,15 +100,10 @@ require("lazy").setup({
         'vyfor/cord.nvim',
         build = ':Cord update',
     },
-    -- {
-    --     'MeanderingProgrammer/render-markdown.nvim',
-    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    --     ---@module 'render-markdown'
-    --     ---@type render.md.UserConfig
-    --     opts = {},
-    -- },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    },
     { 'RRethy/vim-illuminate' },
     { 'nvim-mini/mini.pairs' },
 })

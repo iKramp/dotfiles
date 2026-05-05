@@ -9,5 +9,6 @@
         ./ugs/ugs.nix
         ./virtualbox.nix
         ./viennabc.nix
+        ./vim.nix
     ];
 }
