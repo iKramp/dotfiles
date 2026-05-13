@@ -37,22 +37,46 @@
   networking.extraHosts = ''
     127.0.0.1 kafka
   '';
-
   # Needed for qemu
-  networking.interfaces.tap0 = {
-    ipv4.addresses = [
-      {
-        address = "10.0.0.1";
-        prefixLength = 24;
-      }
-    ];
-    virtual = true;
-    virtualOwner = "nejc";
-  };
-
   networking.nat = {
     enable = true;
     internalInterfaces = [ "tap0" ];
+  };
+
+  systemd.network = {
+    enable = true;
+
+    netdevs."10-tap0" = {
+      netdevConfig = {
+        Kind = "tap";
+        Name = "tap0";
+      };
+
+      tapConfig = {
+        User = "nejc";
+      };
+    };
+
+    networks = {
+      "10-tap0" = {
+        matchConfig.Name = "tap0";
+        address = [ "10.0.0.1/24" ];
+        networkConfig = {
+          ConfigureWithoutCarrier = true;
+        };
+        linkConfig.RequiredForOnline = "no";
+      };
+
+      "20-usb-eth" = {
+        matchConfig.Name = "enp12s0u2u4";
+        address = [ "192.168.1.50/24" ];
+        networkConfig = {
+          ConfigureWithoutCarrier = true;
+          DHCP = "no";
+        };
+        linkConfig.RequiredForOnline = "no";
+      };
+    };
   };
 
   nix.settings.experimental-features = [
