@@ -3,7 +3,6 @@
   lib,
   pkgs,
   pkgs_old,
-  hyprshutdown,
   ...
 }:
 with lib;
@@ -64,7 +63,7 @@ in
         hyprlock
         hyprpicker
         hyprpaper
-        hyprshutdown.packages.${pkgs.system}.default
+        hyprshutdown
         hypridle
       ]
       ++ (with pkgs_old; [
