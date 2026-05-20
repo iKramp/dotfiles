@@ -83,7 +83,7 @@ hl.config({
     },
     animations = {
         enabled = true,
-        workspace_wraparound = true,
+        workspace_wraparound = false,
     },
     misc = {
         middle_click_paste = false,
