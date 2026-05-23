@@ -139,7 +139,7 @@ hl.window_rule({ match = { title = "Konata Dancer" }, no_blur = true, border_siz
 hl.bind("SUPER + TAB", hl.dsp.focus({ last = true }))
 
 hl.bind("SUPER + S", hl.dsp.exec_cmd("hyprctl setprop active opaque toggle"))
-hl.bind("SUPER + SHIFT + Q", hl.dsp.window.kill())
+hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
 hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show drun -matching prefix -drun-match-fields name -no-tokenize -replace -config ~/.config/rofi/rofi-app.rasi"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-show-match -no-sort -config ~/dotfiles/.config/rofi/rofi-app.rasi -calc-command \"echo -n '{result}' | wl-copy\""))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
