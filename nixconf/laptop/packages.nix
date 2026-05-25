@@ -6,9 +6,6 @@ let packages = with pkgs; [
   brightnessctl
   mono
   powertop
-
-  jetbrains.idea
-  maven
 ];
 in if machine == "laptop" then
     builtins.trace "Returning packages for laptop" packages
