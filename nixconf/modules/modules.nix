@@ -10,5 +10,6 @@
         ./virtualbox.nix
         ./viennabc.nix
         ./vim.nix
+        ./utils.nix
     ];
 }

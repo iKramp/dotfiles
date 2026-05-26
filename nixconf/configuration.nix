@@ -175,9 +175,6 @@
       firefox
       lf
 
-      zip
-      unzip
-
       spotify
       stow
       kdePackages.dolphin
@@ -195,7 +192,6 @@
         withVencord = true;
       })
       slack
-      unzip
       fastfetch
       wl-clipboard
       grim
@@ -214,11 +210,9 @@
       gdbgui
       libpkgconf
       lua-language-server
-      ripgrep
       obs-studio
       tmux
       ntfs3g
-      nvd
       gimp3
       feh
       xdg-utils
@@ -234,7 +228,6 @@
       texlab
       jdt-language-server
       libisoburn
-      xxd
       nasm
       cliphist
       bitwarden-desktop
@@ -245,10 +238,8 @@
       element
       qbittorrent
       thunderbird
-      android-tools
       # superTuxKart
       ghex
-      jq
       libnotify
       glib
       libreoffice
