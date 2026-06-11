@@ -256,6 +256,9 @@
       signal-desktop
 
       wayscriber
+      drawy #draw program
+
+      localsend # local file sharing program
 
       r2modman # ultrakill mod manager
 
