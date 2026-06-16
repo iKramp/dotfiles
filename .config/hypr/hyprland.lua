@@ -10,6 +10,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("fcitx5-remote -r")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("wayscriber --daemon --no-tray")
+    hl.exec_cmd("hyprpaper")
 end)
 
 hl.monitor({output = "DP-1", mode = "2560x1440@144", position = "0x0", scale = 1.0, transform = 0})

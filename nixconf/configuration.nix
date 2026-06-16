@@ -116,8 +116,7 @@
   nixpkgs.config.allowBroken = true;
   nixpkgs.config = {
     permittedInsecurePackages = [
-      "qtwebkit-5.212.0-alpha4"
-      "openssl-1.1.1w"
+      "electron-39.8.10" # not insecure, just EOL. Used by... idk?
     ];
   };
 
