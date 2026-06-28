@@ -77,6 +77,9 @@ in
         hyprshutdown
         hypridle
         nixpkgs_smm_pr.legacyPackages.${pkgs.system}.satisfactorymodmanager
+
+        jetbrains.idea
+        maven
       ]
       ++ (with pkgs_old; [
       ]);

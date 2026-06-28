@@ -162,6 +162,7 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
+  environment.variables.NIX_BUILD_SHELL = "${pkgs.zsh}/bin/zsh";
   users.groups.ubridge = { };
 
   # List packages installed in system profile. To search, run:
@@ -180,7 +181,7 @@
       wireplumber
       pipewire
       vlc
-      spacedrive
+      # spacedrive
       git
       gittyup
       meld
@@ -328,6 +329,9 @@
 
   programs.steam = {
     enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
 
   programs.nix-ld.enable = true;

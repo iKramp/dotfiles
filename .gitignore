@@ -1,6 +1,7 @@
 lazy-lock.json
 cached_layouts
 .qmlls.ini
+last_clean
 
 .local/share/icons/*
 !.local/share/icons/NotwaitaBlack/
