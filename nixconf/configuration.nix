@@ -255,6 +255,8 @@
       element-desktop
       signal-desktop
 
+      drawio
+
       wayscriber
       drawy #draw program
 
@@ -277,6 +279,8 @@
       wireguard-tools
 
       kdePackages.okular
+
+      fluxer
 
     ]
     ++ (import ./laptop/packages.nix { inherit pkgs machine; })

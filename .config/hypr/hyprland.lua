@@ -125,6 +125,10 @@ hl.workspace_rule({workspace = "9", monitor = "DP-1"})
 hl.workspace_rule({workspace = "10", monitor = "DP-1"})
 
 
+
+-- slight transparency on non-focused windows
+hl.window_rule({ match = { class = ".*" }, opacity = "1.0 0.975" })
+
 hl.window_rule({ match = { class = "java" }, stay_focused = true })
 hl.window_rule({ match = { class = "steam" }, min_size = { 5, 5 } })
 hl.window_rule({ match = { title = "Keyboard_visualizer" }, float = true })
@@ -149,6 +153,7 @@ hl.bind("PRINT", hl.dsp.exec_cmd("~/dotfiles/scripts/screenshot.sh"))
 hl.bind("SUPER + T", hl.dsp.window.float())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
 -- bind = $mainMod, J, togglesplit, # dwindle find a way to do this
+hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
 hl.bind("SUPER + LEFT", hl.dsp.focus({ direction = "l" }))
 hl.bind("SUPER + RIGHT", hl.dsp.focus({ direction = "r" }))
 hl.bind("SUPER + UP", hl.dsp.focus({ direction = "u" }))

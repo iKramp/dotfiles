@@ -19,6 +19,9 @@
     let
       overlays = [
         millennium.overlays.default
+        (final: prev: {
+          fluxer = prev.callPackage ./pkgs/fluxer.nix {};
+        })
       ];
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -46,11 +49,19 @@
     {
       nixosConfigurations = {
         abacusnixos = nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
-            inherit system pkgs_old pkgs_mindustry;
+            inherit pkgs_old pkgs_mindustry;
             machine = "desktop";
           };
           modules = [
+            {
+              nixpkgs.overlays = overlays;
+              nixpkgs.config = {
+                allowUnfree = true;
+                allowBroken = true;
+              };
+            }
             ./desktop/hardware-configuration.nix
             ./desktop/config.nix
             ./modules/modules.nix
@@ -58,11 +69,19 @@
           ];
         };
         abacus_nixos_laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
-            inherit system pkgs_old pkgs_mindustry;
-            machine = "laptop";
+            inherit pkgs_old pkgs_mindustry;
+            machine = "desktop";
           };
           modules = [
+            {
+              nixpkgs.overlays = overlays;
+              nixpkgs.config = {
+                allowUnfree = true;
+                allowBroken = true;
+              };
+            }
             ./laptop/hardware-configuration.nix
             ./laptop/config.nix
             ./modules/modules.nix
