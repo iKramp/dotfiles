@@ -130,6 +130,7 @@ hl.workspace_rule({workspace = "10", monitor = "DP-1"})
 -- slight transparency on non-focused windows
 hl.window_rule({ match = { class = ".*" }, opacity = "1.0 0.9" })
 hl.window_rule({ match = { class = ".*" }, no_blur = false })
+hl.window_rule({ match = { class = "firefox" }, opacity = "1.0 1.0" })
 
 hl.window_rule({ match = { class = "java" }, stay_focused = true })
 hl.window_rule({ match = { class = "steam" }, min_size = { 5, 5 } })

@@ -1,7 +1,6 @@
-{pkgs, pkgs_mindustry, machine}: 
+{pkgs, machine, ...}: 
 let packages = with pkgs; [
     prismlauncher
-    pkgs_mindustry.mindustry-wayland
     osu-lazer-bin
 ];
 in if machine == "desktop" then

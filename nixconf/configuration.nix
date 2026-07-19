@@ -6,7 +6,7 @@
   config,
   pkgs,
   pkgs_old,
-  pkgs_mindustry,
+  pkgs_25_11,
   lib,
   machine,
   system,
@@ -108,16 +108,6 @@
     LC_PAPER = "sl_SI.UTF-8";
     LC_TELEPHONE = "sl_SI.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-  # Add unstable and old nerd fonts
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-  nixpkgs.config = {
-    permittedInsecurePackages = [
-      "electron-39.8.10" # not insecure, just EOL. Used by... idk?
-    ];
   };
 
   fonts.packages = with pkgs; [
@@ -230,7 +220,7 @@
       libisoburn
       nasm
       cliphist
-      bitwarden-desktop
+      pkgs_25_11.bitwarden-desktop
       hyprpolkitagent # leave in general config, polkit is generic enough
       elf2uf2-rs
       nodejs_22 # needed for the copilot vim plugin
@@ -258,7 +248,7 @@
       drawio
 
       wayscriber
-      drawy #draw program
+      drawy # draw program
 
       localsend # local file sharing program
 
@@ -282,9 +272,11 @@
 
       fluxer
 
+      kdePackages.kio-extras # phone file transfer in dolphin
+
     ]
     ++ (import ./laptop/packages.nix { inherit pkgs machine; })
-    ++ (import ./desktop/packages.nix { inherit pkgs pkgs_mindustry machine; })
+    ++ (import ./desktop/packages.nix { inherit pkgs pkgs_25_11 machine; })
     ++ (with pkgs_old; [
       vscode-extensions.vadimcn.vscode-lldb.adapter
     ]);
