@@ -16,6 +16,7 @@ end)
 hl.monitor({output = "DP-1", mode = "2560x1440@144", position = "0x0", scale = 1.0, transform = 0})
 hl.monitor({output = "DP-3", mode = "1920x1200@60", position = "-1200x-240", scale = 1.0, transform = 3})
 hl.monitor({output = "eDP-1", mode = "1920x1080@60", position = "auto", scale = 1.0})
+hl.monitor({output = "HDMI-A-1", position = "auto", mirror = "eDP-1"})
 
 hl.env("HYPRCURSOR_THEME", "NotwaitaBlack")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -66,9 +67,9 @@ hl.config({
     decoration = {
         rounding = 6,
         blur = {
-            enabled = false,
-            passes = 3,
-            size = 5,
+            enabled = true,
+            passes = 2,
+            size = 4,
             contrast = 0.8916,
             brightness = 0.8172,
             vibrancy = 0.1696,
@@ -127,7 +128,8 @@ hl.workspace_rule({workspace = "10", monitor = "DP-1"})
 
 
 -- slight transparency on non-focused windows
-hl.window_rule({ match = { class = ".*" }, opacity = "1.0 0.975" })
+hl.window_rule({ match = { class = ".*" }, opacity = "1.0 0.9" })
+hl.window_rule({ match = { class = ".*" }, no_blur = false })
 
 hl.window_rule({ match = { class = "java" }, stay_focused = true })
 hl.window_rule({ match = { class = "steam" }, min_size = { 5, 5 } })
