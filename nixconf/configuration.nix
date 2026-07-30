@@ -200,7 +200,6 @@
       gdbgui
       libpkgconf
       lua-language-server
-      obs-studio
       tmux
       ntfs3g
       gimp3
@@ -337,6 +336,12 @@
 
   programs.fuse.userAllowOther = true;
 
+  programs.obs-studio.enable = true;
+  programs.obs-studio.enableVirtualCamera = true;
+  programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [
+    obs-pipewire-audio-capture
+  ];
+
   virtualisation.docker.enable = true;
 
   # Enable the OpenSSH daemon.
@@ -358,6 +363,8 @@
     };
     jails.sshd.enabled = true;
   };
+
+  services.gnome.gnome-keyring.enable = true; #unity hub BS
 
   #needed for swaync to donwload the cover art
   services.gvfs.enable = true;

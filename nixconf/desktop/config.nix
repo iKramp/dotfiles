@@ -5,4 +5,5 @@
 
     boot.crashDump.enable = true;
     ctf.enable = true;
+    vrchatTools.enable = true;
 }

@@ -11,5 +11,6 @@
         ./viennabc.nix
         ./vim.nix
         ./utils.nix
+        ./vrchat.nix
     ];
 }

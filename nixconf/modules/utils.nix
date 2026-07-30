@@ -32,6 +32,9 @@ in
       zip
       unzip
 
+      rar
+      unrar
+
       nvd # nix package version tool
       jq # json parser
     ];

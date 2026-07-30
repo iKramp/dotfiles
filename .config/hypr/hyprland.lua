@@ -130,7 +130,7 @@ hl.workspace_rule({workspace = "10", monitor = "DP-1"})
 -- slight transparency on non-focused windows
 hl.window_rule({ match = { class = ".*" }, opacity = "1.0 0.9" })
 hl.window_rule({ match = { class = ".*" }, no_blur = false })
-hl.window_rule({ match = { class = "firefox" }, opacity = "1.0 1.0" })
+-- hl.window_rule({ match = { class = "firefox" }, opacity = "1.0 1.0" })
 
 hl.window_rule({ match = { class = "java" }, stay_focused = true })
 hl.window_rule({ match = { class = "steam" }, min_size = { 5, 5 } })
@@ -146,7 +146,7 @@ hl.window_rule({ match = { title = "Konata Dancer" }, no_blur = true, border_siz
 
 hl.bind("SUPER + TAB", hl.dsp.focus({ last = true }))
 
-hl.bind("SUPER + S", hl.dsp.exec_cmd("hyprctl setprop active opaque toggle"))
+hl.bind("SUPER + S", hl.dsp.window.set_prop({ prop = "opaque", value = "toggle" }))
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
 hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show drun -matching prefix -drun-match-fields name -no-tokenize -replace -config ~/.config/rofi/rofi-app.rasi"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-show-match -no-sort -config ~/dotfiles/.config/rofi/rofi-app.rasi -calc-command \"echo -n '{result}' | wl-copy\""))
@@ -155,7 +155,6 @@ hl.bind("SUPER + CONTROL + T", hl.dsp.exec_cmd("~/dotfiles/.config/waybar/launch
 hl.bind("PRINT", hl.dsp.exec_cmd("~/dotfiles/scripts/screenshot.sh"))
 hl.bind("SUPER + T", hl.dsp.window.float())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
--- bind = $mainMod, J, togglesplit, # dwindle find a way to do this
 hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
 hl.bind("SUPER + LEFT", hl.dsp.focus({ direction = "l" }))
 hl.bind("SUPER + RIGHT", hl.dsp.focus({ direction = "r" }))
@@ -222,4 +221,4 @@ hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("SUPER + escape", hl.dsp.exec_cmd("wlogout -b 2 -m 160"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("~/dotfiles/scripts/cliphist.sh"))
 hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("~/dotfiles/scripts/cliphist-img.sh"))
-hl.bind("SUPER + S", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))
+-- hl.bind("SUPER + S", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))
