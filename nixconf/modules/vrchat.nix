@@ -25,6 +25,7 @@ in
       pkgs.vrc-get
       pkgs.alcom
       pkgs.unityhub
+      pkgs.blenderWrapped
     ];
   };
 }

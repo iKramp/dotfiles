@@ -12,5 +12,7 @@
         ./vim.nix
         ./utils.nix
         ./vrchat.nix
+        ./nct_fan_control.nix
+        ./vr.nix
     ];
 }

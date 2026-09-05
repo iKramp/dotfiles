@@ -68,7 +68,7 @@ hl.config({
         rounding = 6,
         blur = {
             enabled = true,
-            passes = 2,
+            passes = 3,
             size = 4,
             contrast = 0.8916,
             brightness = 0.8172,
@@ -221,4 +221,4 @@ hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("SUPER + escape", hl.dsp.exec_cmd("wlogout -b 2 -m 160"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("~/dotfiles/scripts/cliphist.sh"))
 hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("~/dotfiles/scripts/cliphist-img.sh"))
--- hl.bind("SUPER + S", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))

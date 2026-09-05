@@ -28,6 +28,7 @@
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+    kernelModules = [ "v4l2loopback" ];
   };
 
   networking.firewall.enable = false;
@@ -233,7 +234,6 @@
       glib
       libreoffice
       baobab
-      blender
       nil
       nixfmt-rfc-style
       meld
@@ -272,6 +272,7 @@
       fluxer
 
       kdePackages.kio-extras # phone file transfer in dolphin
+
 
     ]
     ++ (import ./laptop/packages.nix { inherit pkgs machine; })
@@ -341,6 +342,7 @@
   programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [
     obs-pipewire-audio-capture
   ];
+
 
   virtualisation.docker.enable = true;
 

@@ -22,6 +22,7 @@
         millennium.overlays.default
         (final: prev: {
           fluxer = prev.callPackage ./pkgs/fluxer.nix { };
+          blenderWrapped = prev.callPackage ./pkgs/blender.nix { };
         })
       ];
       system = "x86_64-linux";
