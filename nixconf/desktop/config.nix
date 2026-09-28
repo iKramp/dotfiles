@@ -7,4 +7,5 @@
     ctf.enable = true;
     vrchatTools.enable = true;
     nctFanControl.enable = true;
+    vrSetup.enable = true;
 }
