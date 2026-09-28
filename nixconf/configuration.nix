@@ -272,11 +272,7 @@
       fluxer
 
       kdePackages.kio-extras # phone file transfer in dolphin
-
-
     ]
-    ++ (import ./laptop/packages.nix { inherit pkgs machine; })
-    ++ (import ./desktop/packages.nix { inherit pkgs pkgs_25_11 machine; })
     ++ (with pkgs_old; [
       vscode-extensions.vadimcn.vscode-lldb.adapter
     ]);
