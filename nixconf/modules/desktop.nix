@@ -9,7 +9,6 @@ with lib;
 
 let
   cfg = config.desktop;
-  nixpkgs_smm_pr = builtins.getFlake "github:NixOS/nixpkgs/82da172f855acd214457dff1953f1df1050ce7ae";
 in
 {
   options.desktop = {
@@ -23,16 +22,6 @@ in
   };
 
   config = mkIf cfg.enable {
-
-    assertions = [
-      {
-        assertion = pkgs.lib.versionOlder pkgs.satisfactorymodmanager.version "3.1.0";
-        message = ''
-          pkgs.satisfactorymodmanager is now ${pkgs.satisfactorymodmanager.version}.
-          Remove the temporary nixpkgs_smm_pr override and switch back to pkgs.satisfactorymodmanager.
-        '';
-      }
-    ];
 
     i18n.inputMethod = {
       enable = true;
@@ -76,7 +65,9 @@ in
         hyprpaper
         hyprshutdown
         hypridle
-        nixpkgs_smm_pr.legacyPackages.${pkgs.system}.satisfactorymodmanager
+        xdg-desktop-portal-hyprland
+
+        satisfactorymodmanager
 
         jetbrains.idea
         maven
@@ -85,6 +76,7 @@ in
       ]);
 
     programs.hyprland.enable = true;
+    programs.hyprland.withUWSM = true;
     #make electron apps work
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";

@@ -182,7 +182,7 @@
       (discord.override {
         withVencord = true;
       })
-      slack
+      # slack
       fastfetch
       wl-clipboard
       grim
@@ -269,7 +269,7 @@
 
       kdePackages.okular
 
-      fluxer
+      # fluxer
 
       kdePackages.kio-extras # phone file transfer in dolphin
     ]

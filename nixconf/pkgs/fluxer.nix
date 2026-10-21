@@ -29,14 +29,14 @@
 }:
 
 let
-  version = "2026.602.31138";
+  version = "2026.1009.45608";
   channel = "canary";
   pname = "fluxer";
 
   src = fetchurl {
-    url = "https://api.canary.fluxer.app/dl/desktop/${channel}/linux/x64/${version}/tar_gz";
+    url = "https://pkgs.fluxer.com/desktop/${channel}/linux/x64/${version}/tar_gz";
     name = "fluxer-${version}.tar.gz";
-    hash = "sha256-IhzEcYaCcClCO/qIYkEo2JsTLEB+K0+cQWCaJO1Zz7A=";
+    hash = "sha256-ZAOv9ToSKBl9SwPcBQIFiaWcP+5rQrZSd+elR7hxHHQ=";
   };
 in
 

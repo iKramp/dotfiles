@@ -2,8 +2,7 @@
   description = "My nixos config";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/d407951447dcd00442e97087bf374aad70c04cea";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_old.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs_25_11.url = "github:nixos/nixpkgs/nixos-25.11";
     millennium.url = "git+https://github.com/michaelgoldenn/Millennium";
