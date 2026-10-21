@@ -10,6 +10,7 @@
   bluetooth.enable = true;
   ctf.enable = true;
   viennabc.enable = false;
+  fri_mro.enable = true;
 
   environment.systemPackages = with pkgs; [
     blueman
