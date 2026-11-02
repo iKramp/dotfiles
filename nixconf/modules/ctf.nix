@@ -19,7 +19,6 @@ in {
             ghidra
             burpsuite
             postman
-            # ida-free
             pwntools
             python313
             python313Packages.pwntools

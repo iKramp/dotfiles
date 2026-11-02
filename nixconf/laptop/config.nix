@@ -8,7 +8,7 @@
   networking.hostName = "abacus_nixos_laptop";
 
   bluetooth.enable = true;
-  ctf.enable = true;
+  ctf.enable = false;
   viennabc.enable = false;
   fri_mro.enable = true;
 

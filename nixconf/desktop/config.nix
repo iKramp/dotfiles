@@ -4,7 +4,7 @@
     amdgpu.enable = true;
 
     boot.crashDump.enable = true;
-    ctf.enable = true;
+    ctf.enable = false;
     vrchatTools.enable = true;
     nctFanControl.enable = true;
     vrSetup.enable = true;

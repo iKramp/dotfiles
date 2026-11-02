@@ -68,9 +68,8 @@ in
         xdg-desktop-portal-hyprland
 
         satisfactorymodmanager
-
-        jetbrains.idea
-        maven
+        # jetbrains.idea
+        # maven
       ]
       ++ (with pkgs_old; [
       ]);
