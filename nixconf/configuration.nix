@@ -27,8 +27,20 @@
     kernelPackages = pkgs.linuxPackages_latest;
     tmp.useTmpfs = false;
     tmp.tmpfsSize = "50%";
-    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages =
+      let
+        v4l2loopback-workaround = pkgs.runCommand "v4l2loopback-workaround" { } ''
+          subdir=lib/modules/${config.boot.kernelPackages.kernel.version}
+          mkdir -p $out/$subdir
+          cd ${config.boot.kernelPackages.v4l2loopback}
+          for f in *; do
+            if [[ $f =~ ^modules ]]; then continue; fi
+            cp -r $f $out/$subdir/$f
+          done
+        '';
+      in
+      [ v4l2loopback-workaround ];
+    # kernelModules = [ "v4l2loopback" ];
   };
 
   networking.firewall.enable = false;
@@ -337,8 +349,12 @@
   programs.obs-studio.enableVirtualCamera = true;
   programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [
     obs-pipewire-audio-capture
+    wlrobs
+    obs-backgroundremoval
+    obs-vaapi # optional AMD hardware acceleration
+    obs-gstreamer
+    obs-vkcapture
   ];
-
 
   virtualisation.docker.enable = true;
 
@@ -362,7 +378,7 @@
     jails.sshd.enabled = true;
   };
 
-  services.gnome.gnome-keyring.enable = true; #unity hub BS
+  services.gnome.gnome-keyring.enable = true; # unity hub BS
 
   #needed for swaync to donwload the cover art
   services.gvfs.enable = true;

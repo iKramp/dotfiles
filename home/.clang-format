@@ -1,0 +1,10 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+InsertBraces: true
+# #disallow no curly
+# AllowShortIfStatementsWithBody: false
+# AllowShortWhileStatementsWithBody: false
+# AllowShortCaseLabels: false
+# AllowShortSwitchStatements: false

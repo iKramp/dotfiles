@@ -8,6 +8,7 @@
     vrchatTools.enable = true;
     nctFanControl.enable = true;
     vrSetup.enable = true;
+    fri_mro.enable = true;
 
     environment.systemPackages = with pkgs; [
         prismlauncher
